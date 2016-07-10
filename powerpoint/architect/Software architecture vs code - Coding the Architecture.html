@@ -1,0 +1,1178 @@
+<!DOCTYPE html>
+<!-- saved from url=(0096)http://www.codingthearchitecture.com/presentations/gotochicago2014-software-architecture-vs-code -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Software architecture vs code - Coding the Architecture</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="shortcut icon" href="http://www.codingthearchitecture.com/presentations/favicon.ico">
+    <link href="./Software architecture vs code - Coding the Architecture_files/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="./Software architecture vs code - Coding the Architecture_files/codingthearchitecture.css" rel="stylesheet" media="screen">
+    <link href="./Software architecture vs code - Coding the Architecture_files/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
+    <script src="./Software architecture vs code - Coding the Architecture_files/cb=gapi.loaded_1" async=""></script><script src="./Software architecture vs code - Coding the Architecture_files/cb=gapi.loaded_0" async=""></script><script type="text/javascript" async="" src="./Software architecture vs code - Coding the Architecture_files/plusone.js" gapi_processed="true"></script><script src="./Software architecture vs code - Coding the Architecture_files/jquery-1.8.2.min.js"></script>
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="/presentations/static/js/html5.js"></script>
+    <![endif]-->
+<script src="./Software architecture vs code - Coding the Architecture_files/secureAnonymousFramework"></script><script type="text/javascript" charset="utf-8" async="" src="./Software architecture vs code - Coding the Architecture_files/button.81af4103a17f97a4de4eee8fa2d91d55.js"></script><style type="text/css">* html #li_ui_li_gen_1466641357128_0 a#li_ui_li_gen_1466641357128_0-link{height:1% !important;}#li_ui_li_gen_1466641357128_0{position:relative !important;overflow:visible !important;display:block !important;}#li_ui_li_gen_1466641357128_0 span{-webkit-box-sizing:content-box !important;-moz-box-sizing:content-box !important;box-sizing:content-box !important;}#li_ui_li_gen_1466641357128_0 a#li_ui_li_gen_1466641357128_0-link{border:0 !important;height:20px !important;text-decoration:none !important;padding:0 !important;margin:0 !important;display:inline-block !important;}#li_ui_li_gen_1466641357128_0 a#li_ui_li_gen_1466641357128_0-link:link, #li_ui_li_gen_1466641357128_0 a#li_ui_li_gen_1466641357128_0-link:visited, #li_ui_li_gen_1466641357128_0 a#li_ui_li_gen_1466641357128_0-link:hover, #li_ui_li_gen_1466641357128_0 a#li_ui_li_gen_1466641357128_0-link:active{border:0 !important;text-decoration:none !important;}#li_ui_li_gen_1466641357128_0 a#li_ui_li_gen_1466641357128_0-link:after{content:"." !important;display:block !important;clear:both !important;visibility:hidden !important;line-height:0 !important;height:0 !important;}#li_ui_li_gen_1466641357128_0 #li_ui_li_gen_1466641357128_0-logo{background-image:url(https://static.licdn.com/scds/common/u/images/apps/connect/sprites/sprite_connect_v14.png) !important;background-position:0px -593px !important;background-repeat:no-repeat !important;background-color:#0077b5 !important;background-size:initial !important;cursor:pointer !important;border:0 !important;border-right:1px solid #066094 !important;text-indent:-9999em !important;overflow:hidden !important;padding:0 !important;margin:0 !important;position:absolute !important;left:0px !important;top:0px !important;display:block !important;width:20px !important;height:20px !important;float:right !important;border-radius:2px !important;-webkit-border-radius:2px !important;border-top-right-radius:2px !important;border-bottom-right-radius:2px !important;-webkit-border-top-right-radius:2px !important;-webkit-border-bottom-right-radius:2px !important;}#li_ui_li_gen_1466641357128_0 #li_ui_li_gen_1466641357128_0-title{color:#fff !important;cursor:pointer !important;display:block !important;white-space:nowrap !important;float:left !important;margin-left:1px !important;vertical-align:top !important;overflow:hidden !important;text-align:center !important;height:18px !important;padding:0 4px 0 23px !important;border:1px solid #000 !important;border-top-color:#0077b5 !important;border-right-color:#0077b5 !important;border-bottom-color:#0077b5 !important;border-left-color:#0077b5 !important;text-shadow:0 -1px #005887 !important;line-height:20px !important;border-radius:2px !important;-webkit-border-radius:2px !important;border-top-right-radius:2px !important;border-bottom-right-radius:2px !important;-webkit-border-top-right-radius:2px !important;-webkit-border-bottom-right-radius:2px !important;background-color:#0077b5 !important;background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0%,#0077b5), color-stop(100%,#0077b5)) !important; background-image: -webkit-linear-gradient(top, #0077b5 0%, #0077b5 100%) !important;}#li_ui_li_gen_1466641357128_0.hovered #li_ui_li_gen_1466641357128_0-title{border:1px solid #000 !important;border-top-color:#0369a0 !important;border-right-color:#0369a0 !important;border-bottom-color:#0369a0 !important;border-left-color:#0369a0 !important;background-color:#0369a0 !important;background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0%,#0369a0), color-stop(100%,#0369a0)) !important; background-image: -webkit-linear-gradient(top, #0369a0 0%, #0369a0 100%) !important;}#li_ui_li_gen_1466641357128_0.clicked #li_ui_li_gen_1466641357128_0-title, #li_ui_li_gen_1466641357128_0.down #li_ui_li_gen_1466641357128_0-title{color:#fff !important;border:1px solid #000 !important;border-top-color:#066094 !important;border-right-color:#066094 !important;border-bottom-color:#066094 !important;border-left-color:#066094 !important;background-color:#066094 !important;background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0%,#066094), color-stop(100%,#066094)) !important; background-image: -webkit-linear-gradient(top, #066094 0%, #066094 100%) !important;}.IN-shadowed #li_ui_li_gen_1466641357128_0 #li_ui_li_gen_1466641357128_0-title{}.IN-shadowed #li_ui_li_gen_1466641357128_0.hovered #li_ui_li_gen_1466641357128_0-title{}.IN-shadowed #li_ui_li_gen_1466641357128_0.clicked #li_ui_li_gen_1466641357128_0-title, .IN-shadowed #li_ui_li_gen_1466641357128_0.down #li_ui_li_gen_1466641357128_0-title{}#li_ui_li_gen_1466641357128_0 #li_ui_li_gen_1466641357128_0-title-text, #li_ui_li_gen_1466641357128_0 #li_ui_li_gen_1466641357128_0-title-text *{color:#fff !important;font-size:11px !important;font-family:Arial, sans-serif !important;font-weight:bold !important;font-style:normal !important;-webkit-font-smoothing:antialiased !important;display:inline-block !important;background:transparent none !important;vertical-align:top !important;height:18px !important;line-height:20px !important;float:none !important;}#li_ui_li_gen_1466641357128_0 #li_ui_li_gen_1466641357128_0-title-text strong{font-weight:bold !important;}#li_ui_li_gen_1466641357128_0 #li_ui_li_gen_1466641357128_0-title-text em{font-style:italic !important;}#li_ui_li_gen_1466641357128_0.hovered #li_ui_li_gen_1466641357128_0-title-text, #li_ui_li_gen_1466641357128_0.hovered #li_ui_li_gen_1466641357128_0-title-text *{color:#fff !important;}#li_ui_li_gen_1466641357128_0.clicked #li_ui_li_gen_1466641357128_0-title-text, #li_ui_li_gen_1466641357128_0.down #li_ui_li_gen_1466641357128_0-title-text, #li_ui_li_gen_1466641357128_0.clicked #li_ui_li_gen_1466641357128_0-title-text *, #li_ui_li_gen_1466641357128_0.down #li_ui_li_gen_1466641357128_0-title-text *{color:#fff !important;}#li_ui_li_gen_1466641357128_0 #li_ui_li_gen_1466641357128_0-title #li_ui_li_gen_1466641357128_0-mark{display:inline-block !important;width:0px !important;overflow:hidden !important;}.success #li_ui_li_gen_1466641357128_0 #li_ui_li_gen_1466641357128_0-title{color:#fff !important;border-top-color:#0077b5 !important;border-right-color:#0077b5 !important;border-bottom-color:#0077b5 !important;border-left-color:#0077b5 !important;background-color:#0077b5 !important;background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0%,#0077b5), color-stop(100%,#0077b5)) !important; background-image: -webkit-linear-gradient(top, #0077b5 0%, #0077b5 100%) !important;}.success #li_ui_li_gen_1466641357128_0 #li_ui_li_gen_1466641357128_0-title-text, .success #li_ui_li_gen_1466641357128_0 #li_ui_li_gen_1466641357128_0-title-text *{color:#fff !important;}.IN-shadowed .success #li_ui_li_gen_1466641357128_0 #li_ui_li_gen_1466641357128_0-title{}.success #li_ui_li_gen_1466641357128_0.hovered #li_ui_li_gen_1466641357128_0-title{color:#fff !important;border-top-color:#0369a0 !important;border-right-color:#0369a0 !important;border-bottom-color:#0369a0 !important;border-left-color:#0369a0 !important;background-color:#0369a0 !important;background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0%,#0369a0), color-stop(100%,#0369a0)) !important; background-image: -webkit-linear-gradient(top, #0369a0 0%, #0369a0 100%) !important;}.success #li_ui_li_gen_1466641357128_0.hovered #li_ui_li_gen_1466641357128_0-title-text, .success #li_ui_li_gen_1466641357128_0.hovered #li_ui_li_gen_1466641357128_0-title-text *{color:#fff !important;}.success #li_ui_li_gen_1466641357128_0.clicked #li_ui_li_gen_1466641357128_0-title, .success #li_ui_li_gen_1466641357128_0.down #li_ui_li_gen_1466641357128_0-title{color:#fff !important;border-top-color:#066094 !important;border-right-color:#066094 !important;border-bottom-color:#066094 !important;border-left-color:#066094 !important;background-color:#066094 !important;background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0%,#066094), color-stop(100%,#066094)) !important; background-image: -webkit-linear-gradient(top, #066094 0%, #066094 100%) !important;}.success #li_ui_li_gen_1466641357128_0.clicked #li_ui_li_gen_1466641357128_0-title-text, .success #li_ui_li_gen_1466641357128_0.down #li_ui_li_gen_1466641357128_0-title-text, .success #li_ui_li_gen_1466641357128_0.clicked #li_ui_li_gen_1466641357128_0-title-text *, .success #li_ui_li_gen_1466641357128_0.down #li_ui_li_gen_1466641357128_0-title-text *{color:#fff !important;}.IN-shadowed .success #li_ui_li_gen_1466641357128_0.clicked #li_ui_li_gen_1466641357128_0-title, .IN-shadowed .success #li_ui_li_gen_1466641357128_0.down #li_ui_li_gen_1466641357128_0-title{}#li_ui_li_gen_1466641357149_1-container.IN-right {display:inline-block !important;float:left !important;overflow:visible !important;position:relative !important;height:20px !important;padding-left:2px !important;line-height:1px !important;cursor:pointer !important;}#li_ui_li_gen_1466641357149_1.IN-right {display:block !important;float:left !important;height:20px !important;margin-right:4px !important;padding-right:4px !important;background-image:url(https://static.licdn.com/scds/common/u/images/apps/connect/sprites/sprite_connect_v14.png) !important;background-color:transparent !important;background-repeat:no-repeat !important;background-position:right -447px !important;}#li_ui_li_gen_1466641357149_1-inner.IN-right {display:block !important;float:left !important;padding-left:8px !important;text-align:center !important;background-image:url(https://static.licdn.com/scds/common/u/images/apps/connect/sprites/sprite_connect_v14.png) !important;background-color:transparent !important;background-repeat:no-repeat !important;background-position:0px -426px !important;}#li_ui_li_gen_1466641357149_1-content.IN-right {display:inline !important;font-size:11px !important;color:#4e4e4e !important;font-weight:bold !important;font-family:Arial, sans-serif !important;line-height:20px !important;padding:0 5px 0 5px !important;}#li_ui_li_gen_1466641357149_1-container.IN-empty {display:none !important;}#li_ui_li_gen_1466641357149_1-container.IN-hidden #li_ui_li_gen_1466641357149_1 {display:none !important;}</style></head>
+
+<body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </a>
+                <a class="brand" href="http://www.codingthearchitecture.com/"><img src="./Software architecture vs code - Coding the Architecture_files/cta.png" alt="Coding the Architecture"></a>
+                <div class="nav-collapse collapse">
+                    <ul class="nav">
+                        <li><a href="http://www.codingthearchitecture.com/blogentries/1.html">Blog</a></li>
+                        <li><a href="http://www.codingthearchitecture.com/presentations/">Presentations</a></li>
+                        <li><a href="http://leanpub.com/software-architecture-for-developers" target="_blank">Book</a></li>
+                        <li><a href="http://www.codingthearchitecture.com/training/">Training</a></li>
+                    </ul>
+
+                    <form class="navbar-search pull-right" action="http://www.codingthearchitecture.com/search.action">
+                        <input name="query" type="text" value="" class="search-query input-small" placeholder="Search">
+                    </form>
+                </div><!--/.nav-collapse -->
+            </div>
+        </div>
+    </div><div class="section sectionWhite">
+    <div class="container">
+        <h1>Software architecture vs code</h1>
+
+        <div>
+            <div id="leanpub" class="hidden-phone">
+                <iframe width="160" height="400" src="./Software architecture vs code - Coding the Architecture_files/embed.html" frameborder="0" allowtransparency="true"></iframe>
+            </div>
+            <p>Software architecture and coding are often seen as mutually exclusive disciplines, despite us referring to higher level abstractions when we talk about our software. You've probably heard others on your team talking about components, services and layers rather than objects when they're having discussions. Take a look at the codebase though. Can you clearly see these abstractions or does the code reflect some other structure? If so, why is there no clear mapping between the architecture and the code? Why do those architecture diagrams that you have on the wall say one thing whereas your code says another? In fact, why is it so hard to automatically generate a decent architecture diagram from an existing codebase? Join us to explore this topic further.</p>
+        </div>
+
+        <p class="presentationMetaData">
+            
+                
+                    <a href="http://www.simonbrown.je/" target="_blank">Simon Brown</a>
+                
+                
+            
+            
+            |
+                21 May 2014 |
+            GOTO Chicago 2014
+             |
+            Chicago, United States
+            <img src="./Software architecture vs code - Coding the Architecture_files/United-States.png" alt="United States" style="padding-bottom: 4px; vertical-align: middle;">
+            
+            
+        </p>
+
+        <h4 style="margin-top: 32px;">Other formats</h4>
+        <p>
+            
+                <a href="http://static.codingthearchitecture.com/presentations/gotochicago2014-software-architecture-vs-code.pdf" target="_blank"><img src="./Software architecture vs code - Coding the Architecture_files/pdf.png" width="36px" alt="PDF" border="0"></a>
+            
+        </p>
+
+    </div>
+</div>
+<div class="section sectionShaded">
+    <div class="container">
+
+        <div align="center">
+            <div id="slideContainer">
+                <img id="large-slide" class="slide img-polaroid" valign="bottom" src="./Software architecture vs code - Coding the Architecture_files/slide.016.png" slidenumber="16">
+            </div>
+        </div>
+
+        <div align="center">
+            <br>
+            <i class="icon-backward" id="previous"></i>
+            &nbsp;
+            <span class="badge"><span id="slideNumber">16</span> of 106</span>
+            &nbsp;
+            <i class="icon-forward" id="next"></i>
+        </div>
+
+        <div id="lighttable">
+        
+            
+                <div class="row">
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.001.png" class="slideThumbnail img-polaroid" title="Slide 1">
+                    </div>
+            
+
+            
+        
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.002.png" class="slideThumbnail img-polaroid" title="Slide 2">
+                    </div>
+            
+
+            
+        
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.003.png" class="slideThumbnail img-polaroid" title="Slide 3">
+                    </div>
+            
+
+            
+        
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.004.png" class="slideThumbnail img-polaroid" title="Slide 4">
+                    </div>
+            
+
+            
+        
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.005.png" class="slideThumbnail img-polaroid" title="Slide 5">
+                    </div>
+            
+
+            
+        
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.006.png" class="slideThumbnail img-polaroid" title="Slide 6">
+                    </div>
+            
+                </div>
+            
+
+            
+        
+            
+                <div class="row">
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.007.png" class="slideThumbnail img-polaroid" title="Slide 7">
+                    </div>
+            
+
+            
+        
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.008.png" class="slideThumbnail img-polaroid" title="Slide 8">
+                    </div>
+            
+
+            
+        
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.009.png" class="slideThumbnail img-polaroid" title="Slide 9">
+                    </div>
+            
+
+            
+        
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.010.png" class="slideThumbnail img-polaroid" title="Slide 10">
+                    </div>
+            
+
+            
+        
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.011.png" class="slideThumbnail img-polaroid" title="Slide 11">
+                    </div>
+            
+
+            
+        
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.012.png" class="slideThumbnail img-polaroid" title="Slide 12">
+                    </div>
+            
+                </div>
+            
+
+            
+        
+            
+                <div class="row">
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.013.png" class="slideThumbnail img-polaroid" title="Slide 13">
+                    </div>
+            
+
+            
+        
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.014.png" class="slideThumbnail img-polaroid" title="Slide 14">
+                    </div>
+            
+
+            
+        
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.015.png" class="slideThumbnail img-polaroid" title="Slide 15">
+                    </div>
+            
+
+            
+        
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.016(1).png" class="slideThumbnail img-polaroid" title="Slide 16">
+                    </div>
+            
+
+            
+        
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.017.png" class="slideThumbnail img-polaroid" title="Slide 17">
+                    </div>
+            
+
+            
+        
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.018.png" class="slideThumbnail img-polaroid" title="Slide 18">
+                    </div>
+            
+                </div>
+            
+
+            
+        
+            
+                <div class="row">
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.019.png" class="slideThumbnail img-polaroid" title="Slide 19">
+                    </div>
+            
+
+            
+        
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.020.png" class="slideThumbnail img-polaroid" title="Slide 20">
+                    </div>
+            
+
+            
+        
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.021.png" class="slideThumbnail img-polaroid" title="Slide 21">
+                    </div>
+            
+
+            
+        
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.022.png" class="slideThumbnail img-polaroid" title="Slide 22">
+                    </div>
+            
+
+            
+        
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.023.png" class="slideThumbnail img-polaroid" title="Slide 23">
+                    </div>
+            
+
+            
+        
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.024.png" class="slideThumbnail img-polaroid" title="Slide 24">
+                    </div>
+            
+                </div>
+            
+
+            
+        
+            
+                <div class="row">
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.025.png" class="slideThumbnail img-polaroid" title="Slide 25">
+                    </div>
+            
+
+            
+        
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.026.png" class="slideThumbnail img-polaroid" title="Slide 26">
+                    </div>
+            
+
+            
+        
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.027.png" class="slideThumbnail img-polaroid" title="Slide 27">
+                    </div>
+            
+
+            
+        
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.028.png" class="slideThumbnail img-polaroid" title="Slide 28">
+                    </div>
+            
+
+            
+        
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.029.png" class="slideThumbnail img-polaroid" title="Slide 29">
+                    </div>
+            
+
+            
+        
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.030.png" class="slideThumbnail img-polaroid" title="Slide 30">
+                    </div>
+            
+                </div>
+            
+
+            
+        
+            
+                <div class="row">
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.031.png" class="slideThumbnail img-polaroid" title="Slide 31">
+                    </div>
+            
+
+            
+        
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.032.png" class="slideThumbnail img-polaroid" title="Slide 32">
+                    </div>
+            
+
+            
+        
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.033.png" class="slideThumbnail img-polaroid" title="Slide 33">
+                    </div>
+            
+
+            
+        
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.034.png" class="slideThumbnail img-polaroid" title="Slide 34">
+                    </div>
+            
+
+            
+        
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.035.png" class="slideThumbnail img-polaroid" title="Slide 35">
+                    </div>
+            
+
+            
+        
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.036.png" class="slideThumbnail img-polaroid" title="Slide 36">
+                    </div>
+            
+                </div>
+            
+
+            
+        
+            
+                <div class="row">
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.037.png" class="slideThumbnail img-polaroid" title="Slide 37">
+                    </div>
+            
+
+            
+        
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.038.png" class="slideThumbnail img-polaroid" title="Slide 38">
+                    </div>
+            
+
+            
+        
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.039.png" class="slideThumbnail img-polaroid" title="Slide 39">
+                    </div>
+            
+
+            
+        
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.040.png" class="slideThumbnail img-polaroid" title="Slide 40">
+                    </div>
+            
+
+            
+        
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.041.png" class="slideThumbnail img-polaroid" title="Slide 41">
+                    </div>
+            
+
+            
+        
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.042.png" class="slideThumbnail img-polaroid" title="Slide 42">
+                    </div>
+            
+                </div>
+            
+
+            
+        
+            
+                <div class="row">
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.043.png" class="slideThumbnail img-polaroid" title="Slide 43">
+                    </div>
+            
+
+            
+        
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.044.png" class="slideThumbnail img-polaroid" title="Slide 44">
+                    </div>
+            
+
+            
+        
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.045.png" class="slideThumbnail img-polaroid" title="Slide 45">
+                    </div>
+            
+
+            
+        
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.046.png" class="slideThumbnail img-polaroid" title="Slide 46">
+                    </div>
+            
+
+            
+        
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.047.png" class="slideThumbnail img-polaroid" title="Slide 47">
+                    </div>
+            
+
+            
+        
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.048.png" class="slideThumbnail img-polaroid" title="Slide 48">
+                    </div>
+            
+                </div>
+            
+
+            
+        
+            
+                <div class="row">
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.049.png" class="slideThumbnail img-polaroid" title="Slide 49">
+                    </div>
+            
+
+            
+        
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.050.png" class="slideThumbnail img-polaroid" title="Slide 50">
+                    </div>
+            
+
+            
+        
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.051.png" class="slideThumbnail img-polaroid" title="Slide 51">
+                    </div>
+            
+
+            
+        
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.052.png" class="slideThumbnail img-polaroid" title="Slide 52">
+                    </div>
+            
+
+            
+        
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.053.png" class="slideThumbnail img-polaroid" title="Slide 53">
+                    </div>
+            
+
+            
+        
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.054.png" class="slideThumbnail img-polaroid" title="Slide 54">
+                    </div>
+            
+                </div>
+            
+
+            
+        
+            
+                <div class="row">
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.055.png" class="slideThumbnail img-polaroid" title="Slide 55">
+                    </div>
+            
+
+            
+        
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.056.png" class="slideThumbnail img-polaroid" title="Slide 56">
+                    </div>
+            
+
+            
+        
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.057.png" class="slideThumbnail img-polaroid" title="Slide 57">
+                    </div>
+            
+
+            
+        
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.058.png" class="slideThumbnail img-polaroid" title="Slide 58">
+                    </div>
+            
+
+            
+        
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.059.png" class="slideThumbnail img-polaroid" title="Slide 59">
+                    </div>
+            
+
+            
+        
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.060.png" class="slideThumbnail img-polaroid" title="Slide 60">
+                    </div>
+            
+                </div>
+            
+
+            
+        
+            
+                <div class="row">
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.061.png" class="slideThumbnail img-polaroid" title="Slide 61">
+                    </div>
+            
+
+            
+        
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.062.png" class="slideThumbnail img-polaroid" title="Slide 62">
+                    </div>
+            
+
+            
+        
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.063.png" class="slideThumbnail img-polaroid" title="Slide 63">
+                    </div>
+            
+
+            
+        
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.064.png" class="slideThumbnail img-polaroid" title="Slide 64">
+                    </div>
+            
+
+            
+        
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.065.png" class="slideThumbnail img-polaroid" title="Slide 65">
+                    </div>
+            
+
+            
+        
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.066.png" class="slideThumbnail img-polaroid" title="Slide 66">
+                    </div>
+            
+                </div>
+            
+
+            
+        
+            
+                <div class="row">
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.067.png" class="slideThumbnail img-polaroid" title="Slide 67">
+                    </div>
+            
+
+            
+        
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.068.png" class="slideThumbnail img-polaroid" title="Slide 68">
+                    </div>
+            
+
+            
+        
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.069.png" class="slideThumbnail img-polaroid" title="Slide 69">
+                    </div>
+            
+
+            
+        
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.070.png" class="slideThumbnail img-polaroid" title="Slide 70">
+                    </div>
+            
+
+            
+        
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.071.png" class="slideThumbnail img-polaroid" title="Slide 71">
+                    </div>
+            
+
+            
+        
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.072.png" class="slideThumbnail img-polaroid" title="Slide 72">
+                    </div>
+            
+                </div>
+            
+
+            
+        
+            
+                <div class="row">
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.073.png" class="slideThumbnail img-polaroid" title="Slide 73">
+                    </div>
+            
+
+            
+        
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.074.png" class="slideThumbnail img-polaroid" title="Slide 74">
+                    </div>
+            
+
+            
+        
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.075.png" class="slideThumbnail img-polaroid" title="Slide 75">
+                    </div>
+            
+
+            
+        
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.076.png" class="slideThumbnail img-polaroid" title="Slide 76">
+                    </div>
+            
+
+            
+        
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.077.png" class="slideThumbnail img-polaroid" title="Slide 77">
+                    </div>
+            
+
+            
+        
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.078.png" class="slideThumbnail img-polaroid" title="Slide 78">
+                    </div>
+            
+                </div>
+            
+
+            
+        
+            
+                <div class="row">
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.079.png" class="slideThumbnail img-polaroid" title="Slide 79">
+                    </div>
+            
+
+            
+        
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.080.png" class="slideThumbnail img-polaroid" title="Slide 80">
+                    </div>
+            
+
+            
+        
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.081.png" class="slideThumbnail img-polaroid" title="Slide 81">
+                    </div>
+            
+
+            
+        
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.082.png" class="slideThumbnail img-polaroid" title="Slide 82">
+                    </div>
+            
+
+            
+        
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.083.png" class="slideThumbnail img-polaroid" title="Slide 83">
+                    </div>
+            
+
+            
+        
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.084.png" class="slideThumbnail img-polaroid" title="Slide 84">
+                    </div>
+            
+                </div>
+            
+
+            
+        
+            
+                <div class="row">
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.085.png" class="slideThumbnail img-polaroid" title="Slide 85">
+                    </div>
+            
+
+            
+        
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.086.png" class="slideThumbnail img-polaroid" title="Slide 86">
+                    </div>
+            
+
+            
+        
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.087.png" class="slideThumbnail img-polaroid" title="Slide 87">
+                    </div>
+            
+
+            
+        
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.088.png" class="slideThumbnail img-polaroid" title="Slide 88">
+                    </div>
+            
+
+            
+        
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.089.png" class="slideThumbnail img-polaroid" title="Slide 89">
+                    </div>
+            
+
+            
+        
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.090.png" class="slideThumbnail img-polaroid" title="Slide 90">
+                    </div>
+            
+                </div>
+            
+
+            
+        
+            
+                <div class="row">
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.091.png" class="slideThumbnail img-polaroid" title="Slide 91">
+                    </div>
+            
+
+            
+        
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.092.png" class="slideThumbnail img-polaroid" title="Slide 92">
+                    </div>
+            
+
+            
+        
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.093.png" class="slideThumbnail img-polaroid" title="Slide 93">
+                    </div>
+            
+
+            
+        
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.094.png" class="slideThumbnail img-polaroid" title="Slide 94">
+                    </div>
+            
+
+            
+        
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.095.png" class="slideThumbnail img-polaroid" title="Slide 95">
+                    </div>
+            
+
+            
+        
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.096.png" class="slideThumbnail img-polaroid" title="Slide 96">
+                    </div>
+            
+                </div>
+            
+
+            
+        
+            
+                <div class="row">
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.097.png" class="slideThumbnail img-polaroid" title="Slide 97">
+                    </div>
+            
+
+            
+        
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.098.png" class="slideThumbnail img-polaroid" title="Slide 98">
+                    </div>
+            
+
+            
+        
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.099.png" class="slideThumbnail img-polaroid" title="Slide 99">
+                    </div>
+            
+
+            
+        
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.100.png" class="slideThumbnail img-polaroid" title="Slide 100">
+                    </div>
+            
+
+            
+        
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.101.png" class="slideThumbnail img-polaroid" title="Slide 101">
+                    </div>
+            
+
+            
+        
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.102.png" class="slideThumbnail img-polaroid" title="Slide 102">
+                    </div>
+            
+                </div>
+            
+
+            
+        
+            
+                <div class="row">
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.103.png" class="slideThumbnail img-polaroid" title="Slide 103">
+                    </div>
+            
+
+            
+        
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.104.png" class="slideThumbnail img-polaroid" title="Slide 104">
+                    </div>
+            
+
+            
+        
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.105.png" class="slideThumbnail img-polaroid" title="Slide 105">
+                    </div>
+            
+
+            
+        
+            
+                    <div class="span2 thumbnailContainer">
+                        <img src="./Software architecture vs code - Coding the Architecture_files/slide.106.png" class="slideThumbnail img-polaroid" title="Slide 106">
+                    </div>
+            
+
+            
+                
+                    <div class="span2">&nbsp;</div>
+                
+                    <div class="span2">&nbsp;</div>
+                
+                </div>
+            
+        
+        </div>
+    </div>
+</div>
+
+<footer>
+        <div id="shareme">
+    <div class="row">
+        <div class="span3">
+            <iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" class="twitter-share-button twitter-share-button-rendered twitter-tweet-button" title="Twitter Tweet Button" src="./Software architecture vs code - Coding the Architecture_files/tweet_button.178875e873dd548f81376d8be28c2163.en.html" style="position: static; visibility: visible; width: 60px; height: 20px;" data-url="http://www.codingthearchitecture.com/presentations/gotochicago2014-software-architecture-vs-code"></iframe><script type="text/javascript" src="./Software architecture vs code - Coding the Architecture_files/widgets.js"></script>
+        </div>
+
+        <div class="span3">
+            <script type="text/javascript" src="./Software architecture vs code - Coding the Architecture_files/in.js"></script><span class="IN-widget" style="line-height: 1; vertical-align: baseline; display: inline-block; text-align: center;"><span style="padding: 0px !important; margin: 0px !important; text-indent: 0px !important; display: inline-block !important; vertical-align: baseline !important; font-size: 1px !important;"><span id="li_ui_li_gen_1466641357128_0"><a id="li_ui_li_gen_1466641357128_0-link" href="javascript:void(0);"><span id="li_ui_li_gen_1466641357128_0-logo">in</span><span id="li_ui_li_gen_1466641357128_0-title"><span id="li_ui_li_gen_1466641357128_0-mark"></span><span id="li_ui_li_gen_1466641357128_0-title-text">Share</span></span></a></span></span><span style="padding: 0px !important; margin: 0px !important; text-indent: 0px !important; display: inline-block !important; vertical-align: baseline !important; font-size: 1px !important;"><span id="li_ui_li_gen_1466641357149_1-container" class="IN-right"><span id="li_ui_li_gen_1466641357149_1" class="IN-right"><span id="li_ui_li_gen_1466641357149_1-inner" class="IN-right"><span id="li_ui_li_gen_1466641357149_1-content" class="IN-right">21</span></span></span></span></span></span><script type="in/share+init" data-url="http://www.codingthearchitecture.com/presentations/gotochicago2014-software-architecture-vs-code" data-counter="right"></script>
+        </div>
+
+        <div class="span3">
+            <iframe src="./Software architecture vs code - Coding the Architecture_files/like.html" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:100px; height:21px;" allowtransparency="true"></iframe>
+        </div>
+
+        <div class="span3">
+            <!-- Place this tag where you want the +1 button to render -->
+            <div id="___plusone_0" style="text-indent: 0px; margin: 0px; padding: 0px; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; width: 180px; height: 24px; background: transparent;"><iframe frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="position: static; top: 0px; width: 180px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 24px;" tabindex="0" vspace="0" width="100%" id="I0_1466641357205" name="I0_1466641357205" src="./Software architecture vs code - Coding the Architecture_files/fastbutton.html" data-gapiattached="true" title="+1"></iframe></div>
+
+            <!-- Place this render call where appropriate -->
+            <script type="text/javascript">
+              window.___gcfg = {lang: 'en-GB'};
+
+              (function() {
+                var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+                po.src = 'https://apis.google.com/js/plusone.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+              })();
+            </script>
+        </div>
+    </div>
+</div>
+</footer>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        numberOfSlides = 106;
+
+        loadSlide(1);
+
+        
+
+        function loadSlide(slideNumber) {
+            $('#large-slide').attr('slideNumber', slideNumber);
+            $('#large-slide').attr('src', '/presentations/static/img/loading-slide.gif');
+            $('#large-slide').attr('src', formatFileName(slideNumber));
+            $('#slideNumber').text(slideNumber);
+
+            preloadSlide(slideNumber, -1);
+            preloadSlide(slideNumber, 1);
+        }
+
+        function formatFileName(slideNumber) {
+            return "http://static.codingthearchitecture.com/presentations/gotochicago2014-software-architecture-vs-code/slides/slide." + pad(slideNumber, 3) + ".png";
+        }
+
+        function pad(number, length) {
+            var str = '' + number;
+            while (str.length < length) {
+                str = '0' + str;
+            }
+            return str;
+        }
+
+        function preloadSlide(currentSlide, offset) {
+            image = new Image();
+
+            nextSlide = currentSlide + offset;
+            if (nextSlide > 0 && nextSlide <= numberOfSlides) {
+                image.src = formatFileName(nextSlide);
+            }
+        }
+
+        function scrollToSlideContainer() {
+            value = $('#slideContainer').offset().top;
+            $('body,html').animate({
+                scrollTop: value - 100
+            }, '400');
+        }
+
+        $('.slideThumbnail').click(
+                function() {
+                    array = $(this).attr('src').split('/');
+                    fileName = array[array.length - 1];
+                    slide = parseInt(fileName.split('.')[1], 10);
+                    loadSlide(slide);
+                    scrollToSlideContainer();
+                });
+
+        function next() {
+            currentSlide = parseInt($('#large-slide').attr('slideNumber'));
+            if (currentSlide < numberOfSlides) {
+                currentSlide = currentSlide + 1;
+                loadSlide(currentSlide);
+            }
+        }
+
+        function previous() {
+            currentSlide = parseInt($('#large-slide').attr('slideNumber'));
+            if (currentSlide > 1) {
+                currentSlide = currentSlide - 1;
+                loadSlide(currentSlide);
+            }
+        }
+
+        $(document).keydown(function(e) {
+            if (e.which == 37) {
+                previous();
+                scrollToSlideContainer();
+            }
+        });
+
+        $(document).keydown(function(e) {
+            if (e.which == 39) {
+                next();
+                scrollToSlideContainer();
+            }
+        });
+
+        $('#next').click(function() {
+                next();
+            });
+
+        $('#previous').click(
+                function() {
+                    previous();
+                });
+
+    });
+</script>
+<script src="./Software architecture vs code - Coding the Architecture_files/bootstrap.min.js"></script>
+
+
+    <!-- start of Google Analytics -->
+    <script type="text/javascript">
+        var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+        document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script><script src="./Software architecture vs code - Coding the Architecture_files/ga.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        var pageTracker = _gat._getTracker("UA-4643149-1");
+        pageTracker._initData();
+        pageTracker._trackPageview();
+    </script>
+    <!-- end of Google Analytics -->
+
+
+
+<iframe name="oauth2relay259676608" id="oauth2relay259676608" src="./Software architecture vs code - Coding the Architecture_files/postmessageRelay.html" tabindex="-1" style="width: 1px; height: 1px; position: absolute; top: -100px;"></iframe><iframe id="rufous-sandbox" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" style="position: absolute; visibility: hidden; display: none; width: 0px; height: 0px; padding: 0px; border: none;" src="./Software architecture vs code - Coding the Architecture_files/saved_resource.html"></iframe></body></html>
