@@ -20,7 +20,7 @@ component output="false"
 		/* insert record */
 		var q =new query();
 		q.setdataSource("dsnConference");
-		q.setsql('INSERT INTO Conf.Session
+		q.setsql('INSERT INTO Conf.Lecture
 			(
 				title,description,stratdatetime,enddatetime,
 				createdby,crerateddatetime,updatedby,updateddatetime
@@ -39,8 +39,8 @@ component output="false"
 		var r=q.execute().getresult();
 		
 		
-		if(arguments.SessionID NEQ '')
-			IdentityCol=arguments.SessionID;
+		if(arguments.LectureID NEQ '')
+			IdentityCol=arguments.LectureID;
 					      
 		 else
 		 {
@@ -70,24 +70,24 @@ component output="false"
 	
 	
 	/* read */
-	public Session function read(id)
+	public Lecture function read(id)
 	    {
 		
 		/* Auto-generated method
 		         Add authroization or any logical checks for secure access to your data */
-		var obj = createObject('component', 'Session').init();
+		var obj = createObject('component', 'Lecture').init();
 		var i = 1;
 		var qry="";
 		
 		var q= new query();
 		q.setdatasource("dsnConference");
-		q.setsql('SELECT sessionid,title,description,stratdatetime,enddatetime,
+		q.setsql('SELECT lectureid,title,description,stratdatetime,enddatetime,
 					createdby,crerateddatetime,updatedby,updateddatetime
-			FROM Conf.Session
-			where sessionid = "#ARGUMENTS.id#"');
+			FROM Conf.Lecture
+			where lectureid = #ARGUMENTS.id#');
 		qry=q.execute().getresult();	
 		/* load value object */
-		obj.setSessionID(qry.SessionID[i]);
+		obj.setLectureID(qry.LectureID[i]);
 		obj.setTitle(qry.Title[i]);
 		obj.setDescription(qry.Description[i]);
 		obj.setStratDateTime(qry.StratDateTime[i]);
@@ -101,7 +101,7 @@ component output="false"
 	    }
 	
 	/* update */
-	public void function update(numeric SessionID,	string Title,	string Description,	date StratDateTime,	date EndDateTime,	string CreatedBy,	date CreratedDateTime,	string UpdatedBy,	date UpdatedDateTime)
+	public void function update(numeric LectureID,	string Title,	string Description,	date StratDateTime,	date EndDateTime,	string CreatedBy,	date CreratedDateTime,	string UpdatedBy,	date UpdatedDateTime)
 		{
 		/* Auto-generated method
 		         Add authroization or any logical checks for secure access to your data */
@@ -110,7 +110,7 @@ component output="false"
 		/* update database */
 		var q =new query();
 		q.setdatasource("dsnConference");
-		q.setsql('UPDATE Conf.Session
+		q.setsql('UPDATE Conf.Lecture
 			SET title = "#ARGUMENTS.Title#" ,
 				description = "#ARGUMENTS.Description#" ,
 				stratdatetime = "#ARGUMENTS.StratDateTime#" ,
@@ -119,14 +119,14 @@ component output="false"
 				crerateddatetime = "#ARGUMENTS.CreratedDateTime#" ,
 				updatedby = "#ARGUMENTS.UpdatedBy#" ,
 				updateddatetime = "#ARGUMENTS.UpdatedDateTime#" 
-			WHERE sessionid = "#ARGUMENTS.SessionID#" ');
+			WHERE lectureid = "#ARGUMENTS.LectureID#" ');
 	    qry=q.execute().getresult();		
 		
 		
 		}
 	
 	/* delete */
-	public void function delete(numeric SessionID)
+	public void function delete(numeric LectureID)
 		{
 		/* Auto-generated method
 		         Add authroization or any logical checks for secure access to your data */
@@ -134,8 +134,8 @@ component output="false"
 		/* delete from database */
 		var q =new query();
 		q.setdatasource("dsnConference");
-		q.setsql('DELETE FROM Conf.Session
-			WHERE sessionid = "#ARGUMENTS.SessionID#"' );
+		q.setsql('DELETE FROM Conf.Lecture
+			WHERE lectureid = "#ARGUMENTS.LectureID#"' );
 		qry=q.execute().getresult();
 		
 		}

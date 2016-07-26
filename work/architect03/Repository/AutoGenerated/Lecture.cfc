@@ -1,7 +1,7 @@
 component output="false" accessors="true" 
 {
 	/* properties */
-	property name="Sessionid" type="numeric" ;
+	property name="Lectureid" type="numeric" ;
 	property name="Title" type="string" ;
 	property name="Description" type="string" ;
 	property name="Stratdatetime" type="date" ;

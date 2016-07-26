@@ -5,12 +5,12 @@ component output="false"
 	public any function init()
 	{
 		var INSTANCE = {};
-		INSTANCE.dao = createObject('component', 'SessionDAO').init();
+		INSTANCE.dao = createObject('component', 'LectureDAO').init();
 		return this;
 	}
 
 	/* getAll */
-	public Session[] function getAll()
+	public Lecture[] function getAll()
 	{
 		var collection = [];
 		var obj = '';
@@ -19,13 +19,13 @@ component output="false"
 		/* get all records from database */
 		var q= new query();
 		q.setdatasource('dsnConference');
-		q.setsql('SELECT * FROM Conf.Session');
+		q.setsql('SELECT * FROM Conf.Lecture');
 		qry=q.execute().getresult();
 		/* load value objects */
 		for(i=1;i<="#qry.recordcount#";i++)
 		{
-			obj = createObject('component', 'Session').init();
-			if( !isNull( qry.Sessionid[i] ) && len( qry.Sessionid[i] ) ) obj.setSessionid(qry.Sessionid[i]);
+			obj = createObject('component', 'Lecture').init();
+			if( !isNull( qry.Lectureid[i] ) && len( qry.Lectureid[i] ) ) obj.setLectureid(qry.Lectureid[i]);
 			if( !isNull( qry.Title[i] ) && len( qry.Title[i] ) ) obj.setTitle(qry.Title[i]);
 			if( !isNull( qry.Description[i] ) && len( qry.Description[i] ) ) obj.setDescription(qry.Description[i]);
 			if( !isNull( qry.Stratdatetime[i] ) && len( qry.Stratdatetime[i] ) ) obj.setStratdatetime(qry.Stratdatetime[i]);
@@ -41,7 +41,7 @@ component output="false"
 	}
 	
 	/* getAll_paged */
-	public Session[] function ngetAll_paged(numeric start,numeric count)
+	public Lecture[] function ngetAll_paged(numeric start,numeric count)
 	{
 		var collection = [];
 		var obj = '';
@@ -51,7 +51,7 @@ component output="false"
 		/* get all records from database */
 		var q= new query();
 		q.setdatasource(dsnConference);
-		q.setsql('SELECT * FROM Conf.Session');			
+		q.setsql('SELECT * FROM Conf.Lecture');			
 		qry=q.execute().getresult();
 		
 		/* load value objects */
@@ -62,8 +62,8 @@ component output="false"
 		
 		for(i="#ARGUMENTS.start#";i<="#end#";i++)
 			{
-			 obj = createObject('component', 'Session').init();
-			if( !isNull( qry.Sessionid[i] ) && len( qry.Sessionid[i] ) ) obj.setSessionid(qry.Sessionid[i]);
+			 obj = createObject('component', 'Lecture').init();
+			if( !isNull( qry.Lectureid[i] ) && len( qry.Lectureid[i] ) ) obj.setLectureid(qry.Lectureid[i]);
 			if( !isNull( qry.Title[i] ) && len( qry.Title[i] ) ) obj.setTitle(qry.Title[i]);
 			if( !isNull( qry.Description[i] ) && len( qry.Description[i] ) ) obj.setDescription(qry.Description[i]);
 			if( !isNull( qry.Stratdatetime[i] ) && len( qry.Stratdatetime[i] ) ) obj.setStratdatetime(qry.Stratdatetime[i]);
@@ -84,8 +84,8 @@ component output="false"
 		var qry = "";
 		var q=new query();
 		q.setdatasource(dsnConference);
-		q.setsql('SELECT COUNT(SessionID) AS total
-			FROM Conf.Session');
+		q.setsql('SELECT COUNT(LectureID) AS total
+			FROM Conf.Lecture');
 		qry=q.execute().getresult();
 		return qry.total[1];
 	}

@@ -1,14 +1,10 @@
 component output="false"
 {
-	/* Auto-generated method
-		         Add authroization or any logical checks for secure access to your data */
-	/* init */
 	public any function init()
 	{
 			return this ;
 	}
 	
-	/* create */
 	public any function create( numeric PersonTypeID, numeric ConferenceID= 0, string Name, string Gender, numeric IsActive= 0, string CreatedBy= '', date CreatedDateTime= '01/01/1900', string UpdatedBy= '', date UpdatedDateTime= '01/01/1900' )
 	{
 				
@@ -70,8 +66,6 @@ component output="false"
 		return IdentityCol;
 	}
 	
-	
-	/* read */
 	public Person function read(id)
 	    {
 		
@@ -104,7 +98,6 @@ component output="false"
 		return obj;
 	    }
 	
-	/* update */
 	public void function update(numeric PersonID,	numeric PersonTypeID,	numeric ConferenceID,	string Name,	string Gender,	numeric IsActive,	string CreatedBy,	date CreatedDateTime,	string UpdatedBy,	date UpdatedDateTime)
 		{
 		/* Auto-generated method
@@ -130,7 +123,6 @@ component output="false"
 		
 		}
 	
-	/* delete */
 	public void function delete(numeric PersonID)
 		{
 		/* Auto-generated method

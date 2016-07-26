@@ -1,6 +1,5 @@
 component output="false" accessors="true" 
 {
-	/* properties */
 	property name="Conferenceid" type="numeric" ;
 	property name="Addressid" type="numeric" ;
 	property name="Name" type="string" ;
@@ -12,10 +11,4 @@ component output="false" accessors="true"
 	property name="Createddatetime" type="date" ;
 	property name="Updatedby" type="string" ;
 	property name="Updateddatetime" type="date" ;
-	
-	/* init */
-	function init()
-	{
-		return this;
-	}
 }
