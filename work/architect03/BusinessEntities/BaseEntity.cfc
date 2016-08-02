@@ -1,4 +1,4 @@
-component  output="false"
+component displayname="BaseEntity" output="false"
 {
 	property name="isActive" type="numeric" ;
 	property name="createdBy" type="string" ;
