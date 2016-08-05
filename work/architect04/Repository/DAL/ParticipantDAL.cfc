@@ -37,12 +37,19 @@ component extends="conference.Injector" output="false"
 		 	participant.lectures = lectures;
 		 	participants.append( participant );
 		}
+		/*
+		var addresses = [];
+		var person = new Person();
+		var address = new Address();
+		var conference = new Conference();
+		var conf_session = new Session();*/
 		
 		return participants;
 	}
 	
 	public Lecture[] function listLecturesByPersonID( required numeric personID ){
 		var id = arguments.personID;
+		writeDump(id);
 		var lectures = [];
 		var i = 1;
 		var qry = "";		
@@ -59,7 +66,16 @@ component extends="conference.Injector" output="false"
 			lecture = new Lecture();
 			lecture = this.lectureDAO.read( q.Lectureid );
 			lectures.append(lecture);
-			
+			/*if( !isNull( qry.Lectureid[i] ) && len( qry.Lectureid[i] ) ) obj.setLectureid(qry.Lectureid[i]);
+			if( !isNull( qry.Title[i] ) && len( qry.Title[i] ) ) obj.setTitle(qry.Title[i]);
+			if( !isNull( qry.Description[i] ) && len( qry.Description[i] ) ) obj.setDescription(qry.Description[i]);
+			if( !isNull( qry.Stratdatetime[i] ) && len( qry.Stratdatetime[i] ) ) obj.setStratdatetime(qry.Stratdatetime[i]);
+			if( !isNull( qry.Enddatetime[i] ) && len( qry.Enddatetime[i] ) ) obj.setEnddatetime(qry.Enddatetime[i]);
+			if( !isNull( qry.Createdby[i] ) && len( qry.Createdby[i] ) ) obj.setCreatedby(qry.Createdby[i]);
+			if( !isNull( qry.Crerateddatetime[i] ) && len( qry.Crerateddatetime[i] ) ) obj.setCrerateddatetime(qry.Crerateddatetime[i]);
+			if( !isNull( qry.Updatedby[i] ) && len( qry.Updatedby[i] ) ) obj.setUpdatedby(qry.Updatedby[i]);
+			if( !isNull( qry.Updateddatetime[i] ) && len( qry.Updateddatetime[i] ) ) obj.setUpdateddatetime(qry.Updateddatetime[i]);
+			arrayAppend(lectures, obj);*/
 		}
 		/* return success */
 		return lectures;

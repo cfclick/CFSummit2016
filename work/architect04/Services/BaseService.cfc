@@ -1,11 +1,11 @@
-component extends="conference.Injector" output="false"
+component extends="conference.Injector" output="false" implements="conference.Interfaces.IBaseService,conference.Interfaces.IInjector" 
 {
 	public void function init(){
 	}
-
-	public any function getConfig(){
+	
+	public Conference.Config function getConfig(){
 		if( !isdefined("variables.config") || isSimpleValue( variables.config ) )
-			variables.config = new CFSummit2016.work.architect03.Config();
+			variables.config = new Conference.Config();
 		
 		return variables.config;
 	}

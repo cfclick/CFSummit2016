@@ -1,4 +1,4 @@
 <cfscript>
-	dal = new CFSummit2016.work.architect03.repository.dal.ParticipantDAL();
-	writeDump(dal.listParticipants()); 
+	service = new conference.services.ParticipantService();
+	writeDump(service.listParticipants()); 
 </cfscript>
