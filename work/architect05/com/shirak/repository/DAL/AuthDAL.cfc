@@ -1,7 +1,8 @@
-component  output="false"
+component extends="BaseDAL" output="false"
 {
-	function init(){
-		
+	function init(any dependency){
+		super.init(arguments.dependency);
+		return this;
 	}
 	
 	public struct function login( required string userName, required string password ) {
@@ -25,7 +26,9 @@ component  output="false"
         var identityQueries["login"] = result.getResult();   
         //Login Query End **
         
-        
+        if( identityQueries["login"].recordcount == 0 )
+        	throw( message="Invalid login", ERRORCODE="601");
+       
         //PersonLogin Query start **
         var q2 = new query();         
          /* set properties using implict setters */         
@@ -68,9 +71,7 @@ component  output="false"
         var result4 = q4.execute(sql=sql4);         
         var identityQueries["LoginRole"] = result4.getResult();    
         //LoginRole Query End **
-        
-        
-        
+
         return identityQueries;
 	}
 }

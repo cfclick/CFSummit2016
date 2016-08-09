@@ -10,7 +10,7 @@ component  output="false"
 			var key = ListFirst(property.inject,":");
 			var file = ListLast(property.inject,":");	
 			var map = config.getPathByKey(key);
-			var fullpath = map & '.' & file;
+			var fullpath = map & '.' & file;		
 			var injectedObject = createobject( fullpath ).init();
 			cfc[property.name] = injectedObject;
 		}

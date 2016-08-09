@@ -3,14 +3,14 @@ component extends="conference.Injector" output="false"
 	public void function init(){
 	}
 	
-	public Conference.Config function getConfig(){
+	package Conference.Config function getConfig(){
 		if( !isdefined("variables.config") || isSimpleValue( variables.config ) )
 			variables.config = new Conference.Config();
 		
 		return variables.config;
 	}
 	
-	public void function suppressError( any Exception,boolean sendEmail=true, boolean logIt=true, any object ){
+	package void function suppressError( any Exception,boolean sendEmail=true, boolean logIt=true, any object ){
 		var except = arguments.Exception;
 		var app_setting = getConfig().getEnvironmentSettings();
 		if( arguments.sendEmail ){
