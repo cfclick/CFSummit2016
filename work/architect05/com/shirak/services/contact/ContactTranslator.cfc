@@ -1,4 +1,4 @@
-component  output="false"
+component extends="conference.services.BaseTranslator"  output="false"
 {
 	import conference.services.BaseEntity;
 	import conference.services.contact.ContactAddress;
