@@ -9,7 +9,7 @@ component output="false"
 	}
 	
 	/* create */
-	public any function create( numeric PersonTypeID, numeric ConferenceID= 0, string Name, string Gender, numeric IsActive= 0, string CreatedBy= '', date CreatedDateTime= '01/01/1900', string UpdatedBy= '', date UpdatedDateTime= '01/01/1900' )
+	public any function create( string Name, numeric IsActive= 0, string CreatedBy= '', date CreatedDateTime= '01/01/1900', string UpdatedBy= '', date UpdatedDateTime= '01/01/1900' )
 	{
 				
 		/* Auto-generated method
@@ -20,18 +20,14 @@ component output="false"
 		/* insert record */
 		var q =new query();
 		q.setdataSource("dsnConference");
-		q.setsql('INSERT INTO Contact.Person
+		q.setsql('INSERT INTO Definition.AddressType
 			(
-				persontypeid,conferenceid,name,gender,
-				isactive,createdby,createddatetime,updatedby,updateddatetime
-				
+				name,isactive,createdby,createddatetime,
+				updatedby,updateddatetime
 			)
 			VALUES
 			(
-				#ARGUMENTS.PersonTypeID#,
-				#ARGUMENTS.ConferenceID#,
 				#ARGUMENTS.Name#,
-				#ARGUMENTS.Gender#,
 				#ARGUMENTS.IsActive#,
 				#ARGUMENTS.CreatedBy#,
 				#ARGUMENTS.CreatedDateTime#,
@@ -41,8 +37,8 @@ component output="false"
 		var r=q.execute().getresult();
 		
 		
-		if(arguments.PersonID NEQ '')
-			IdentityCol=arguments.PersonID;
+		if(arguments.AddressTypeID NEQ '')
+			IdentityCol=arguments.AddressTypeID;
 					      
 		 else
 		 {
@@ -72,29 +68,25 @@ component output="false"
 	
 	
 	/* read */
-	public Person function read(id)
+	public Addresstype function read(id)
 	    {
 		
 		/* Auto-generated method
 		         Add authroization or any logical checks for secure access to your data */
-		var obj = createObject('component', 'Person').init();
+		var obj = createObject('component', 'Addresstype').init();
 		var i = 1;
 		var qry="";
 		
 		var q= new query();
 		q.setdatasource("dsnConference");
-		q.setsql('SELECT personid,persontypeid,conferenceid,name,gender,
-					isactive,createdby,createddatetime,updatedby,updateddatetime
-					
-			FROM Contact.Person
-			where personid = #ARGUMENTS.id#');
+		q.setsql('SELECT addresstypeid,name,isactive,createdby,createddatetime,
+					updatedby,updateddatetime
+			FROM Definition.AddressType
+			where addresstypeid = "#ARGUMENTS.id#"');
 		qry=q.execute().getresult();	
 		/* load value object */
-		obj.setPersonID(qry.PersonID[i]);
-		obj.setPersonTypeID(qry.PersonTypeID[i]);
-		obj.setConferenceID(qry.ConferenceID[i]);
+		obj.setAddressTypeID(qry.AddressTypeID[i]);
 		obj.setName(qry.Name[i]);
-		obj.setGender(qry.Gender[i]);
 		obj.setIsActive(qry.IsActive[i]);
 		obj.setCreatedBy(qry.CreatedBy[i]);
 		obj.setCreatedDateTime(qry.CreatedDateTime[i]);
@@ -105,7 +97,7 @@ component output="false"
 	    }
 	
 	/* update */
-	public void function update(numeric PersonID,	numeric PersonTypeID,	numeric ConferenceID,	string Name,	string Gender,	numeric IsActive,	string CreatedBy,	date CreatedDateTime,	string UpdatedBy,	date UpdatedDateTime)
+	public void function update(numeric AddressTypeID,	string Name,	numeric IsActive,	string CreatedBy,	date CreatedDateTime,	string UpdatedBy,	date UpdatedDateTime)
 		{
 		/* Auto-generated method
 		         Add authroization or any logical checks for secure access to your data */
@@ -114,24 +106,21 @@ component output="false"
 		/* update database */
 		var q =new query();
 		q.setdatasource("dsnConference");
-		q.setsql('UPDATE Contact.Person
-			SET persontypeid = "#ARGUMENTS.PersonTypeID#" ,
-				conferenceid = "#ARGUMENTS.ConferenceID#" ,
-				name = "#ARGUMENTS.Name#" ,
-				gender = "#ARGUMENTS.Gender#" ,
+		q.setsql('UPDATE Definition.AddressType
+			SET name = "#ARGUMENTS.Name#" ,
 				isactive = "#ARGUMENTS.IsActive#" ,
 				createdby = "#ARGUMENTS.CreatedBy#" ,
 				createddatetime = "#ARGUMENTS.CreatedDateTime#" ,
 				updatedby = "#ARGUMENTS.UpdatedBy#" ,
 				updateddatetime = "#ARGUMENTS.UpdatedDateTime#" 
-			WHERE personid = "#ARGUMENTS.PersonID#" ');
+			WHERE addresstypeid = "#ARGUMENTS.AddressTypeID#" ');
 	    qry=q.execute().getresult();		
 		
 		
 		}
 	
 	/* delete */
-	public void function delete(numeric PersonID)
+	public void function delete(numeric AddressTypeID)
 		{
 		/* Auto-generated method
 		         Add authroization or any logical checks for secure access to your data */
@@ -139,8 +128,8 @@ component output="false"
 		/* delete from database */
 		var q =new query();
 		q.setdatasource("dsnConference");
-		q.setsql('DELETE FROM Contact.Person
-			WHERE personid = "#ARGUMENTS.PersonID#"' );
+		q.setsql('DELETE FROM Definition.AddressType
+			WHERE addresstypeid = "#ARGUMENTS.AddressTypeID#"' );
 		qry=q.execute().getresult();
 		
 		}

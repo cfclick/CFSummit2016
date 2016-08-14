@@ -23,7 +23,7 @@ component extends="BaseDAL" output="false"
         var sql = sqlSelect & " " & sqlWhere ;        
         /* invoke execute() on the query object to execute the query and return a component with properties result and prefix (which can be accessed as implcit getters) */         
         var result = q1.execute(sql=sql);         
-        var identityQueries["login"] = result.getResult();   
+        identityQueries["login"] = result.getResult();   
         //Login Query End **
         
         if( identityQueries["login"].recordcount == 0 )
@@ -40,24 +40,10 @@ component extends="BaseDAL" output="false"
         var sql2 = sqlSelect2 & " " & sqlWhere2 ;        
         /* invoke execute() on the query object to execute the query and return a component with properties result and prefix (which can be accessed as implcit getters) */         
         var result2 = q2.execute(sql=sql2);         
-        var identityQueries["personLogin"] = result2.getResult();  
+        identityQueries["personLogin"] = result2.getResult();
+        identityQueries["personID"] = identityQueries["personLogin"].PersonID[1];   
         //PersonLogin Query End **      
-        
-        
-        //Person Query start **
-        var q3 = new query();         
-        /* set properties using implict setters */         
-        q3.setDatasource( dsn );    
-        var personID = identityQueries["personLogin"].PersonID[1];
-        q3.addParam(name="personID",value=personID,cfsqltype="INTEGER");  
-        var sqlSelect3 = "SELECT * FROM Contact.Person";            
-        var sqlWhere3 = "WHERE PersonID = :personID";                
-        var sql3 = sqlSelect3 & " " & sqlWhere3 ;        
-        /* invoke execute() on the query object to execute the query and return a component with properties result and prefix (which can be accessed as implcit getters) */         
-        var result3 = q3.execute(sql=sql3);         
-        var identityQueries["person"] = result3.getResult();  
-        //Person Query End **
-        
+   
         
         //LoginRole Query start **
         var q4 = new query();         
@@ -69,7 +55,7 @@ component extends="BaseDAL" output="false"
         var sql4 = sqlSelect4 & " " & sqlWhere4 ;        
         /* invoke execute() on the query object to execute the query and return a component with properties result and prefix (which can be accessed as implcit getters) */         
         var result4 = q4.execute(sql=sql4);         
-        var identityQueries["LoginRole"] = result4.getResult();    
+        identityQueries["LoginRole"] = result4.getResult();    
         //LoginRole Query End **
 
         return identityQueries;

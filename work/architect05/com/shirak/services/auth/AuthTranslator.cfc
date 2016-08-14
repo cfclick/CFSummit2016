@@ -16,17 +16,12 @@ component  output="false"
 		var identityStruct = arguments.procResultSet;
 		var identity = new Identity();
 		
+		identity.personID = identityStruct.personID;
+		
 		for(login in identityStruct.login) {
 			identity.login = new Login();
 			identity.login.loginID = login.LoginID;
 			identity.login.userName = login.userName;
-		}
-
-		for(person in identityStruct.person) {
-
-			identity.person = new Person();
-			identity.person.personID = person.personID;
-			identity.person.name = person.name;
 		}
 		
 		var arrayOfRole = [];
