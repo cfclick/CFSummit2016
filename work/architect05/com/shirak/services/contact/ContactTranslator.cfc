@@ -8,7 +8,6 @@ component extends="conference.services.BaseTranslator"  output="false"
 		return this;
 	}
 	
-	
 	public ContactAddress function toContactAddress( required struct procResultSet ) {
 		var add = arguments.procResultSet;
 		var ContactAddress = new ContactAddress();	
