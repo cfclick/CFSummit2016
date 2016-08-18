@@ -22,9 +22,8 @@ component extends="conference.services.BaseService" output="false"
 		return getPersonService().getPerson( arguments.personID );
 	}
 	
-	public Contact function getContactInfo( required numeric personID ){
-		var pId = arguments.personID;
-		
+	public Person[] function listParticipant( ){
+		return getPersonService().getAll();	
 	}
 
 }
