@@ -18,6 +18,7 @@ component{
 	function index(event,rc,prc){
 		var model = getModel('Participant');
 		rc.participants = model.listParticipants();
+		rc.participantREST = model.listParticipantsWithRest();
 		event.setView("Participant/index");
 	}	
 	

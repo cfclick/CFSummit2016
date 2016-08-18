@@ -11,9 +11,16 @@ component singleton{
 	}
 	
 	public any function listParticipants(){
-		//writeDump(contactGateway);abort;
+		
 		var arrayOfParticipant = contactGateway.listParticipant();
 		return arrayOfParticipant;
+	}
+	
+	public any function listParticipantsWithRest(){
+		
+		cfhttp( method="get" ,url="http://localhost/rest/api/Contact/participant.json", result='participants');
+		return deserializeJSON( participants.Filecontent );
+		//writeDump(participants);abort;
 	}
 	
 }
