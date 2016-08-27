@@ -2,11 +2,18 @@
 	//Step 1 
 	//cfhtmltopdf (source="http://www.foxnews.com/", destination="foxnews.pdf", overwrite="true", orientation="landscape");abort;
 	
-	//Step 2
 	//File to use as source for custom property
-	src = "C:\inetpub\wwwroot\TestProject\extractText\foxnews.pdf";
+	src = expandpath('foxnews.pdf');
+	
 	//File to save to the result of adding custom properties
-	dest = "C:\inetpub\wwwroot\TestProject\extractText\foxnews_custom_property.pdf";
+	dest = expandpath( "foxnews_with_custom_properties.pdf");
+	
+	if( !fileExists( src ))
+		throw( message="Crerate PDF file first from step 1");
+		
+	//Step 2
+	
+	
 	//Prepare destination file to write to
 	fileOutputStream = CreateObject("java", "java.io.FileOutputStream").init( dest );
 	//Read the source
