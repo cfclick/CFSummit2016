@@ -7,11 +7,11 @@
             xmlns:dc="http://purl.org/dc/elements/1.1/"
             xmlns:pdf="http://ns.adobe.com/pdf/1.3/"
             xmlns:pdfx="http://ns.adobe.com/pdfx/1.3/">
-         <xmp:ModifyDate>2016-08-11T11:55:20-07:00</xmp:ModifyDate>
-         <xmp:CreateDate>2016-08-11T11:45:14-07:00</xmp:CreateDate>
-         <xmp:MetadataDate>2016-08-11T11:55:20-07:00</xmp:MetadataDate>
-         <xmpMM:DocumentID>uuid:7c31b0c4-da12-4dd0-8b9e-5de89d65c745</xmpMM:DocumentID>
-         <xmpMM:InstanceID>uuid:1019330e-076b-44d8-9e08-f5212beea545</xmpMM:InstanceID>
+         <xmp:ModifyDate>2016-08-27T12:53:01-07:00</xmp:ModifyDate>
+         <xmp:CreateDate>2016-08-27T12:52:42-07:00</xmp:CreateDate>
+         <xmp:MetadataDate>2016-08-27T12:53:01-07:00</xmp:MetadataDate>
+         <xmpMM:DocumentID>uuid:75f60b66-1068-4b56-9108-6adbb7e6e416</xmpMM:DocumentID>
+         <xmpMM:InstanceID>uuid:c489491d-399d-4a7f-9e9c-2699ee8a0673</xmpMM:InstanceID>
          <dc:format>application/pdf</dc:format>
          <dc:title>
             <rdf:Alt>
@@ -20,23 +20,12 @@
          </dc:title>
          <dc:description>
             <rdf:Alt>
-               <rdf:li xml:lang="x-default">This is test subject</rdf:li>
+               <rdf:li xml:lang="x-default">Hello World with changed metadata</rdf:li>
             </rdf:Alt>
          </dc:description>
-         <dc:creator>
-            <rdf:Seq>
-               <rdf:li>Avakian</rdf:li>
-            </rdf:Seq>
-         </dc:creator>
-         <dc:subject>
-            <rdf:Bag>
-               <rdf:li>FOX NEWS</rdf:li>
-            </rdf:Bag>
-         </dc:subject>
          <pdf:Producer>Acrobat Web Capture 9.0</pdf:Producer>
-         <pdf:Keywords>FOX NEWS</pdf:Keywords>
-         <pdfx:Workflow>100</pdfx:Workflow>
-         <pdfx:DocumentCode>FX1001</pdfx:DocumentCode>
+         <pdfx:TrackingNumber>07CBF100-C81E-F428-1C16E3563133C58A</pdfx:TrackingNumber>
+         <pdfx:SortOder>9</pdfx:SortOder>
       </rdf:Description>
    </rdf:RDF>
 </x:xmpmeta>

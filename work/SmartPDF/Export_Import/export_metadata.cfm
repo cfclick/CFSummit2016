@@ -1,9 +1,13 @@
-<cfset destination = expandPath('./xmp/foxnews.xmp') />
-<cfdump var="#destination#"><cfabort>
-<cfpdf 
-	action="export"
- 	type="metadata" 
- 	exportTo="xmp/foxnews.xmp" 
- 	source="foxnews.pdf" 
- 	overwrite="yes" 
-/>
+<cfscript>
+	
+	src = expandPath('../customProperty/foxnews_with_custom_properties.pdf');
+	des = expandPath('../xmp/foxnews.xmp');
+	
+	cfpdf(
+	action="export",
+ 	type="metadata",
+ 	exportTo="#des#", 
+ 	source="#src#",
+ 	overwrite="yes" );
+ 	
+</cfscript>
