@@ -13,8 +13,8 @@
 	source = createobject("java","com.google.zxing.client.j2se.BufferedImageLuminanceSource").init( buff );
 	binarizer = createobject("java","com.google.zxing.common.GlobalHistogramBinarizer").init( source );
 	bitmap = createobject("java","com.google.zxing.BinaryBitmap").init( binarizer ) ;		
-	multipleBarcodeReader = createobject("java","com.google.zxing.pdf417.PDF417Reader");
-	result = multipleBarcodeReader.decode( bitmap );
+	reader = createobject("java","com.google.zxing.pdf417.PDF417Reader");
+	result = reader.decode( bitmap );
 	decodedResult = result.getText();	
 </cfscript>
 <p>decoded text:</p>

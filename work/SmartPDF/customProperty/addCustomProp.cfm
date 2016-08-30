@@ -3,7 +3,14 @@
 	//cfhtmltopdf (source="http://www.foxnews.com/", destination="foxnews.pdf", overwrite="true", orientation="landscape");abort;
 	
 	//File to use as source for custom property
-	src = expandpath('foxnews.pdf');
+	if( isdefined( 'URL.src') ){		
+		src = expandpath( URL.src );
+		if( !fileExists( src ) )
+			throw(message="file #src# does not exist");
+	}else{
+		src = expandpath('foxnews.pdf');
+	}
+	
 	
 	//File to save to the result of adding custom properties
 	dest = expandpath( "foxnews_with_custom_properties.pdf");
