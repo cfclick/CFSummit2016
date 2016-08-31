@@ -1,7 +1,7 @@
 <cfscript>
 	
-	src = expandPath('../../xmp');
-	des = expandpath( "definedPDFs/ABC_Voter_Registration.pdf");
+	des = expandPath('../../xmp/#URL.TN#.xmp');
+	src = expandpath( "definedPDFs/ABC_Voter_Registration.pdf");
 	
 	cfpdf(
 	action="export",
@@ -16,10 +16,8 @@
 	
 	<h3>Sanitize PDF</h3>
 			
-	<p>Sanitize file name: #info.TrackingNumber#.xmp</p>
-	
-	<p>Sanitize file location #expandPath('../../xmp')#</p>
+	<p>Sanitize file name: ABC_Voter_Registration.pdf</p>
 	
 	
-	<a href="export_metadata.cfm?TN=#info.TrackingNumber#&WF=#info.WorkflowID#" target="_self">Export Metadata</a>
+	<a href="sanitize.cfm?TN=#URL.TN#&WF=#URL.WF#" target="_self">Sanitize PDF</a>
 </cfoutput>
