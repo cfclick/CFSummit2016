@@ -53,7 +53,7 @@ component  output="true"
 								if( !directoryExists( workflowDir ) ){
 									directoryCreate(workflowDir);
 								}
-									try
+									/*try
                                     {
                                     	if( fileExists(src)){
                                     		filemove( src,workflowDir );
@@ -66,7 +66,7 @@ component  output="true"
                                     	writelog(file="SmartPDF", application="yes" , text="#e.message#-#e.detail#");
                                     	throw(e);
                                     	break;
-                                    }
+                                    }*/
 
 									var xmp_src = expandpath('../../xmp/#barcodeData.TN#.xmp');
 									writelog(file="SmartPDF", application="yes" , text="#xmp_src#");
@@ -74,18 +74,18 @@ component  output="true"
 									writelog(file="SmartPDF", application="yes" , text="#nextWorkflowID#");
 									var nextWorkflowDir = expandPath('VoteRegistration/Admin/workflow') & '\' & nextWorkflowID;
 									writelog(file="SmartPDF", application="yes" , text="#nextWorkflowDir#");
-									var dest = nextWorkflowDir & '\' & barcodeData.TN & '.pdf';
-									writelog(file="SmartPDF", application="yes" , text="#dest#");
+									//var dest = nextWorkflowDir & '\'; //& barcodeData.TN & '.pdf';
+									//writelog(file="SmartPDF", application="yes" , text="#dest#");
 									if( !directoryExists( nextWorkflowDir ) )
 										directoryCreate(nextWorkflowDir);
 									
-									var workflowFile = workflowDir & '\' & barcodeData.TN & '.pdf';
+									//var workflowFile = workflowDir & '\' & barcodeData.TN & '.pdf';
 									cfpdf(
 										action="import",
 									 	type="metadata",
 									 	importfrom=xmp_src,
-									 	source=workflowFile,
-									 	destination=dest,
+									 	source=src,
+									 	destination=nextWorkflowDir,
 									 	overwrite="yes" );
 	 								break;
 								}

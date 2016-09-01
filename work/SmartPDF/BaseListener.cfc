@@ -28,7 +28,7 @@ component  output="false"
 			var dir = getDirectoryFromPath(fd.filename);
 			//if( fileExists( fd.filename ) ){
 				var fileInfo = getFileInfo(fd.filename);
-				service = new CFSummit2016.work.SmartPDF.VoteRegistration.service.Barcode();
+				service = new SmartPDF.VoteRegistration.service.Barcode();
 				
 				service.detectQRBarcode( fd.filename );					
 			//}
