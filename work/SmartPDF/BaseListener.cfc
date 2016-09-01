@@ -26,11 +26,12 @@ component  output="false"
 			fd = arguments.cfEvent.data;
 			writelog(file="SmartPDF", application="yes" , text="ACTION: #fd.type#;FILE: #fd.filename#; TIME: #timeFormat(fd.lastmodified)#");
 			var dir = getDirectoryFromPath(fd.filename);
-			if( fileExists( fd.filename ) ){
+			//if( fileExists( fd.filename ) ){
 				var fileInfo = getFileInfo(fd.filename);
 				service = new CFSummit2016.work.SmartPDF.VoteRegistration.service.Barcode();
+				
 				service.detectQRBarcode( fd.filename );					
-			}
+			//}
         }
         catch(Any e)
         {
