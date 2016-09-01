@@ -1,6 +1,6 @@
 <h4>Generated QR Image</h4>
 <cfscript>
-	origText = serializeJSON(URL);
+	/*origText = serializeJSON(URL);
 	//The preferred width & height in pixels	
 	w = 20;	h = 20;	
 	//Load Barcode types
@@ -12,7 +12,9 @@
 	matrixToImageWriter = createobject("java","com.google.zxing.client.j2se.MatrixToImageWriter");
 	//Image buffer
 	buff = variables.matrixToImageWriter.toBufferedImage( bitMatrix );
-	img = ImageNew( buff );	
+	img = ImageNew( buff );*/
+	service = new CFSummit2016.work.SmartPDF.VoteRegistration.service.Barcode();
+	img = service.generateQRBarcode(URL);	
 	cfimage( action="writeToBrowser", source=img);
 	
 	/*******************************************************************************************/
