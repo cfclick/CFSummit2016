@@ -58,7 +58,7 @@ component  output="true"
                                     {
                                     	writelog(file="SmartPDF", application="yes" , text="file exists? :#fileExists(src)#");
                                     	if( fileExists(src)){
-                                    		filecopy( src,workflowDir );
+                                    		filemove( src,workflowDir );
                                     	}
                                     	
                                     }
@@ -98,30 +98,24 @@ component  output="true"
 							 	source=import_src,
 							 	destination=import_des,
 							 	overwrite="yes" );
-							 	
+							
+							sleep(500);
+														
+							thread action="run" name="deleteDir" priority="LOW" folder=ufolder{
+								try {
+			                    	DirectoryDelete( folder, true );
+			                    	writelog(file="SmartPDF", application="yes" , text="Folder #folder# has been deleted.");
+			                    } catch(Any e) {
+									writelog(file="SmartPDF", application="yes" , text=e.message);
+			                    }
+							}
+					 	
 							return barcodeData;
 							
                         }catch(Any e){
                         	writelog(file="SmartPDF", application="yes" , text="Error: #e.message# - #e.detail#");
                         }
-				  }			
-	                    
-					
-					
-					/*try {
-						thread action="run" name="deleteDir" priority="LOW" folder=ufolder{
-							try {
-		                    	DirectoryDelete( folder, true );
-		                    } catch(Any e) {
-								writelog(file="SmartPDF", application="yes" , text=e.message);
-		                    }
-						}
-		            } catch(Any e) {
-		            	writelog(file="SmartPDF", application="yes" , text="Error unable to run  delete director thread #ufolder#.");
-		            }*/
-	
-					
-				
+				  	}							
 				}else{
 					return {};
 				}		

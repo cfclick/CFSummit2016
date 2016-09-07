@@ -33,10 +33,10 @@
 				
 	writeDump(URL);
 	
-	if( !directoryExists(expandPath('workflow/#URL.WF#/')))
-		directoryCreate( expandPath('workflow/#URL.WF#/') );
+	if( !directoryExists(expandPath('workflow/#URL.WF#/out')))
+		directoryCreate( expandPath('workflow/#URL.WF#/out') );
 		
-	des2 = expandPath('workflow/#URL.WF#/#URL.TN#.pdf');
+	des2 = expandPath('workflow/#URL.WF#/out/#URL.TN#.pdf');
 	fileCopy( des, des2 );
 </cfscript>
 
