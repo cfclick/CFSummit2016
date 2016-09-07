@@ -1,7 +1,7 @@
 <cfscript>
-	cfhtmltopdf (source="http://www.cnn.com/", destination="cnnnews.pdf", overwrite="true", orientation="landscape");
+	cfhtmltopdf (source="http://www.foxnews.com/", destination="foxnews.pdf", overwrite="true", orientation="landscape");
 	
-	cfpdf( action="getinfo", name="cnnNews", source="cnnnews.pdf");
+	cfpdf( action="getinfo", name="info", source="foxnews.pdf");
 	
-	writedump(cnnNews);
+	writedump(info);
 </cfscript>
