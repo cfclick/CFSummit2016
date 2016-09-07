@@ -22,7 +22,8 @@ component  output="true"
 			try
             {
             	var src = arguments.pdfSource;
-				//var data =  arguments.collection;
+            	var fileName = getFileFromPath(src);
+				//writelog(file="SmartPDF", application="yes" , text="#fileName#");
 				var ufolder = getTempDirectory() & createUUID();
 				
 				cfpdf( action="extractimage", source=src, destination=ufolder, format="jpg");
@@ -48,54 +49,66 @@ component  output="true"
 							
 							if( len(decodedResult.getText()) && isJSON( decodedResult.getText() ) ){
 								var barcodeData = deserializeJSON( decodedResult.getText() );
-								var workflowDir = expandPath('VoteRegistration/Admin/workflow/#barcodeData.WF#/');
+								var workflowDir = expandPath('VoteRegistration\Admin\workflow\#barcodeData.WF#\rec');
 								
 								if( !directoryExists( workflowDir ) ){
 									directoryCreate(workflowDir);
 								}
-									/*try
+									try
                                     {
+                                    	writelog(file="SmartPDF", application="yes" , text="file exists? :#fileExists(src)#");
                                     	if( fileExists(src)){
-                                    		filemove( src,workflowDir );
-                                    		writelog(file="SmartPDF", application="yes" , text="#workflowDir#");
+                                    		filecopy( src,workflowDir );
                                     	}
                                     	
                                     }
                                     catch(Any e)
                                     {
-                                    	writelog(file="SmartPDF", application="yes" , text="#e.message#-#e.detail#");
+                                    	writelog(file="SmartPDF", application="yes" , text="Error: #e.message#-#e.detail#");
                                     	throw(e);
                                     	break;
-                                    }*/
-
-									var xmp_src = expandpath('../../xmp/#barcodeData.TN#.xmp');
-									writelog(file="SmartPDF", application="yes" , text="#xmp_src#");
-									var nextWorkflowID = barcodeData.WF + 10;
-									writelog(file="SmartPDF", application="yes" , text="#nextWorkflowID#");
-									var nextWorkflowDir = expandPath('VoteRegistration/Admin/workflow') & '\' & nextWorkflowID;
-									writelog(file="SmartPDF", application="yes" , text="#nextWorkflowDir#");
-									//var dest = nextWorkflowDir & '\'; //& barcodeData.TN & '.pdf';
-									//writelog(file="SmartPDF", application="yes" , text="#dest#");
-									if( !directoryExists( nextWorkflowDir ) )
-										directoryCreate(nextWorkflowDir);
-									
-									//var workflowFile = workflowDir & '\' & barcodeData.TN & '.pdf';
-									cfpdf(
-										action="import",
-									 	type="metadata",
-									 	importfrom=xmp_src,
-									 	source=src,
-									 	destination=nextWorkflowDir,
-									 	overwrite="yes" );
-	 								break;
-								}
-							
-	                    } catch(Any e) {
-	                    	continue;
-	                    }
+                                    }
+                               break;
+							}
+						} catch(Any e) {
+                    		continue;
+                    	}	
 					}
 					
-					try {
+                    writelog(file="SmartPDF", application="yes" , text="is barcodeData struct?: #isStruct(barcodeData)#");   	
+                    sleep(1000);    	
+					if( isStruct( barcodeData) ){
+						try {
+							var xmp_src = expandpath('./xmp/#barcodeData.TN#.xmp');
+                        	writelog(file="SmartPDF", application="yes" , text="xmp_src: #xmp_src#");
+                        	var tempString = './VoteRegistration/Admin/workflow/#barcodeData.WF#/rec/#fileName#';
+                        	var import_src = expandPath( tempString );
+                        	writelog(file="SmartPDF", application="yes" , text="import_src: #import_src#");
+                        	var nextWorkflowID = barcodeData.WF + 10;
+                        	writelog(file="SmartPDF", application="yes" , text="nextWorkflowID : #nextWorkflowID#");
+                        	var tempString2 = './VoteRegistration/Admin/workflow/#nextWorkflowID#/#barcodeData.TN#.pdf';
+                        	var import_des = expandPath( tempString2 );
+                        	writelog(file="SmartPDF", application="yes" , text="import_des: #import_des#");
+                        //	var workflowFile = nextWorkflowDir & '\' & barcodeData.TN & '.pdf';
+                        	writelog(file="SmartPDF", application="yes" , text="src: #src#");
+                        	cfpdf(
+								action="import",
+							 	type="metadata",
+							 	importfrom=xmp_src,
+							 	source=import_src,
+							 	destination=import_des,
+							 	overwrite="yes" );
+							 	
+							return barcodeData;
+							
+                        }catch(Any e){
+                        	writelog(file="SmartPDF", application="yes" , text="Error: #e.message# - #e.detail#");
+                        }
+				  }			
+	                    
+					
+					
+					/*try {
 						thread action="run" name="deleteDir" priority="LOW" folder=ufolder{
 							try {
 		                    	DirectoryDelete( folder, true );
@@ -105,10 +118,9 @@ component  output="true"
 						}
 		            } catch(Any e) {
 		            	writelog(file="SmartPDF", application="yes" , text="Error unable to run  delete director thread #ufolder#.");
-		            }
+		            }*/
 	
-					return barcodeData;
-							
+					
 				
 				}else{
 					return {};
