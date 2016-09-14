@@ -13,15 +13,11 @@
 </cfscript>
 <cfoutput>
 	<h3>Metadata Exported</h3>
-	<p>Exported file name: #URL.TN#.xmp</p>	
-	<p>Exported file location #expandPath('../../xmp')#</p>
 	
 	<h3>Sanitize PDF</h3>
 			
-	<p>Sanitize file name: #info.TrackingNumber#.xmp</p>
-	
-	<p>Sanitize file location #expandPath('../../xmp')#</p>
+	<p>Sanitize file name: ABC_Voter_Registration.pdf</p>
 	
 	
-	<a href="export_metadata.cfm?TN=#info.TrackingNumber#&WF=#info.WorkflowID#" target="_self">Export Metadata</a>
+	<a href="sanitize.cfm?TN=#URL.TN#&WF=#URL.WF#" target="_self">Sanitize PDF</a>
 </cfoutput>
