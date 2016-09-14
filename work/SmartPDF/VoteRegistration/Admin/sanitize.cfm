@@ -1,3 +1,4 @@
+<h4>Sanitize</h4>
 <cfscript>
 	src = expandpath( "definedPDFs/ABC_Voter_Registration.pdf");
 	des = expandPath('sanitizedPDFs/ABC_Voter_Registration.pdf');
