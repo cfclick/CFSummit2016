@@ -1,7 +1,7 @@
 <cfscript>
 	
-	src = expandPath('../../xmp');
-	des = expandpath( "definedPDFs/ABC_Voter_Registration.pdf");
+	des = expandPath('../../xmp/#URL.TN#.xmp');
+	src = expandpath( "definedPDFs/ABC_Voter_Registration.pdf");
 	
 	cfpdf(
 	action="export",
@@ -13,6 +13,8 @@
 </cfscript>
 <cfoutput>
 	<h3>Metadata Exported</h3>
+	<p>Exported file name: #URL.TN#.xmp</p>	
+	<p>Exported file location #expandPath('../../xmp')#</p>
 	
 	<h3>Sanitize PDF</h3>
 			

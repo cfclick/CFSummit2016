@@ -1,8 +1,8 @@
 <cfscript>
 	
-	src = expandPath('../customProperty/cnnnews.pdf');
+	src = expandPath('../customProperty/msnbc.pdf');
 	xmp_src = expandPath('../xmp/foxnews.xmp');
-	des = expandpath('./cnnnews_imported.pdf');
+	des = expandpath('./msnbc_imported.pdf');
 	
 	cfpdf(
 	action="import",
@@ -13,3 +13,4 @@
  	overwrite="yes" );
  	
 </cfscript>
+Import process is complete

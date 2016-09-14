@@ -1,7 +1,10 @@
 <cfscript>
-	cfhtmltopdf (source="http://www.foxnews.com/", destination="foxnews.pdf", overwrite="true", orientation="landscape");
+	if( !isdefined("URL.address"))
+		cfhtmltopdf (source="http://www.foxnews.com/", destination="foxnews.pdf", overwrite="true", orientation="landscape");
+	else
+		cfhtmltopdf (source=URL.address, destination="msnbc.pdf", overwrite="true", orientation="landscape");
 	
-	cfpdf( action="getinfo", name="info", source="foxnews.pdf");
 	
-	writedump(info);
+	
 </cfscript>
+PDF crerated
