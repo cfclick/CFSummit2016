@@ -31,23 +31,27 @@
   	//info.put("SortOder", "9");
     stamper.setMoreInfo(info);
     stamper.close();  
+    reader.close();
    
     reader = createobject("java","com.lowagie.text.pdf.PdfReader").init( dest );
     info = reader.getInfo();
     writeDump(info);
     reader.close();
+   /* sleep(500);
+    cfpdf( action="getinfo" ,name="info" ,source=dest  );
+    writeDump(info);*/
 </cfscript>	
 <cfoutput>
 	<h3>Custom properties created</h3>
 	
 	<h3>Export Metadata</h3>
 		
-	<p>export file name: #info.TrackingNumber#.xmp</p>
+	<p>export file name: #URL.TN#.xmp</p>
 	
 	<p>Export file location #expandPath('../../xmp')#</p>
 	
 	
-	<a href="export_metadata.cfm?TN=#info.TrackingNumber#&WF=#info.WorkflowID#" target="_self">Export Metadata</a>
+	<a href="export_metadata.cfm?TN=#URL.TN#&WF=#URL.WF#" target="_self">Export Metadata</a>
 	
 </cfoutput>
 

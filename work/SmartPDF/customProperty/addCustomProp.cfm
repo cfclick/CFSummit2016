@@ -33,7 +33,7 @@
     info.put("TrackingNumber", CreateUUID());
   
     //Pushing data 
-    info.put("Title", "Hello World stamped");
+    
     info.put("Subject", "Hello World with changed metadata");
     info.put("SortOder", "9");
     stamper.setMoreInfo(info);
