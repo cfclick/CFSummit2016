@@ -11,7 +11,7 @@ Description :
 */
 component  output="false"
 {
-	public string function getChairColor(){
-		return "mustard";
+	package string function getChairColor(){
+		return "Red";
 	}
 }

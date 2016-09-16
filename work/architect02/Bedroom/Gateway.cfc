@@ -22,4 +22,8 @@ component displayname="Gateway"  hint="I'm the gate keeper for any incoming requ
 		return getChair.getChairColor();
 	}
 	
+	public Bedroom1 function getBedroom1(){
+		return new Bedroom1();
+	}
+	
 }

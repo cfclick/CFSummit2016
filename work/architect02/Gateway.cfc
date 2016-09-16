@@ -18,4 +18,6 @@ component displayname="Gateway"  hint="I'm the gate keeper for any incoming requ
 	public CFSummit2016.work.architect02.Bedroom.Gateway function getBedroom1Gateway(){
 		return new CFSummit2016.work.architect02.Bedroom.Gateway();
 	}
+	
+	
 }

@@ -1,7 +1,7 @@
 /*
 ********************************************************************************
 Author      	:	Shirak Avakian
-Email       	:	Shirak.Avakian@Qbillc.com
+Email       	:	ShirakAvakian@gmail.com
 Company  		: 	QBI LLC
 Date        	:	@{Date}
 Component Name  : 	Bedroom1.cfc
@@ -14,7 +14,7 @@ component displayname="Bedroom1"  output="false"
 	import Chair;
 	import Kingbed;
 	import TV;
-	import AC.*;
+	import AC;
 	
 	public Bedroom1 function init(){
 		this.hasChair = hasChair();

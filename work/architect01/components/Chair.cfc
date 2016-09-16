@@ -1,7 +1,7 @@
 /*
 ********************************************************************************
 Author      	:	Shirak Avakian
-Email       	:	Shirak.Avakian@Qbillc.com
+Email       	:	Shirak.Avakian@gmail.com
 Company  		: 	QBI LLC
 Date        	:	@{Date}
 Component Name  : 	service.cfc

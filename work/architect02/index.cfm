@@ -1,7 +1,7 @@
 <!---
 ********************************************************************************
 Author      	:	Shirak Avakian
-Email       	:	Shirak.Avakian@Qbillc.com
+Email       	:	ShirakAvakian@gmail.com
 Company  		: 	QBI LLC
 Date        	:	@{Date}
 Component Name  : 	index.cfc
@@ -25,4 +25,11 @@ Description :
 		once we are inside bedroom1 we will be able to see chair color
 	*/
 	writeDump(bedroom1Gateway.getChairColor());
+	
+	/*
+		Bedroom1 is inside architect02 so 
+		if we consider it as the gate keeper we can get other classes
+	*/ 
+	
+	writeDump(bedroom1Gateway.getBedroom1().GetChair());
 </cfscript>
