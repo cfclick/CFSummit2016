@@ -9,6 +9,7 @@ Description :
 	A description about this page
 ********************************************************************************
 --->
+<h4>Source Code Architect 02</h4>
 <cfscript>
 	/*
 		Create instance of architect02.Gateway()
@@ -31,5 +32,13 @@ Description :
 		if we consider it as the gate keeper we can get other classes
 	*/ 
 	
-	writeDump(bedroom1Gateway.getBedroom1().GetChair());
+	try
+    {
+    	writeDump(bedroom1Gateway.getBedroom1().GetChair());
+    }
+    catch(Any e)
+    {
+    	writeOutput('<h3>' & e.message & '</h3>');
+    }
+
 </cfscript>

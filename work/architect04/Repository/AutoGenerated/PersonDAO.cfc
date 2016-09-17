@@ -71,7 +71,7 @@ component output="false"
 		
 		/* Auto-generated method
 		         Add authroization or any logical checks for secure access to your data */
-		var obj = createObject('component', 'Person').init();
+		var obj = createObject('component', 'Person');
 		var i = 1;
 		var qry="";
 		
@@ -81,7 +81,7 @@ component output="false"
 					isactive,createdby,createddatetime,updatedby,updateddatetime
 					
 			FROM Contact.Person
-			where personid = "#ARGUMENTS.id#"');
+			where personid = #ARGUMENTS.id#');
 		qry=q.execute().getresult();	
 		/* load value object */
 		obj.setPersonID(qry.PersonID[i]);

@@ -78,7 +78,7 @@ component output="false"
 		
 		/* Auto-generated method
 		         Add authroization or any logical checks for secure access to your data */
-		var obj = createObject('component', 'Conference').init();
+		var obj = createObject('component', 'Conference');
 		var i = 1;
 		var qry="";
 	
