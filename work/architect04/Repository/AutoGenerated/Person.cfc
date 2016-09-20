@@ -10,4 +10,8 @@ component output="false" accessors="true"
 	property name="Createddatetime" type="date" ;
 	property name="Updatedby" type="string" ;
 	property name="Updateddatetime" type="date" ;
+	
+	function init(){
+		return this;
+	}
 }
