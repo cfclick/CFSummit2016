@@ -1,4 +1,4 @@
-component extends="conference.Injector" output="false" implements="conference.Interfaces.IBaseService,conference.Interfaces.IInjector" 
+component output="false" implements="conference.Interfaces.IBaseService" 
 {
 	public void function init(){
 	}
@@ -32,5 +32,9 @@ component extends="conference.Injector" output="false" implements="conference.In
 		if( arguments.logIt ){
 			writelog( text=except.message & "-::::-" & except.detail, application="yes", file="Error_log"  );
 		}	
+	}
+	
+	public void function setVar(required string key, required any value ){
+		variables[arguments.key] = arguments.value;
 	}
 }

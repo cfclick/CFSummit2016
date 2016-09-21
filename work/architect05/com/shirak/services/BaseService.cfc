@@ -1,4 +1,4 @@
-component extends="conference.Injector" output="false"
+component output="false"
 {
 	public void function init(){
 	}

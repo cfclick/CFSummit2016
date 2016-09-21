@@ -1,3 +1,3 @@
-component  output="false" extends="conference.Injector"
+component  output="false" 
 {
 }

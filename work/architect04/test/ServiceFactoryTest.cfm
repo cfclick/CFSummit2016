@@ -1,3 +1,4 @@
+<h4>Service Factory Oriented Architect</h4>
 <cfscript>
 	factory = new Conference.ServiceFactory();
 	// Service Factory instance
@@ -5,6 +6,7 @@
 	
 	// ParticipantService instance
 	participantService = factory.GetParticipantService();
+	
 	writeDump(participantService.GETPARTICIPANT(2));
 	
 	// LectureService instance
