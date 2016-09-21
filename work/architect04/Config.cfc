@@ -26,7 +26,7 @@ component  output="false"
 	
 	public string function getPathByKey(string key){
 		
-		var location = "";		
+		var location = "";	
 		if( isArray( this.injection.locations ) && arraylen( this.injection.locations ) > 0 )
 		{
 			for( location in this.injection.locations )

@@ -6,6 +6,7 @@
 	
 	// ParticipantService instance
 	participantService = factory.GetParticipantService();
+	
 	writeDump(participantService.GETPARTICIPANT(2));
 	
 	// LectureService instance
