@@ -22,15 +22,34 @@ Description :
 	*/ 
 	bedroom1Gateway = gateway.getBedroom1Gateway();
 	writeDump(bedroom1Gateway);
+	
+	/*
+		lets get in the bedoroom1;
+	*/
+	bedroom1 = bedroom1Gateway.getBedroom1();
+	writedump(bedroom1);
 	/*
 		once we are inside bedroom1 we will be able to see chair color
 	*/
-	writeDump(bedroom1Gateway.getChairColor());
-	
-	/*
-		Bedroom1 is inside architect02 so 
-		if we consider it as the gate keeper we can get other classes
-	*/ 
+	if( bedroom1.hasChair )
+	{
+		try
+        {
+        	chair = bedroom1.getChair();
+			writeDump(chair);
+        }
+        catch(Any e)
+        {
+        	writeOutput("<h4>You can not get the chair from the bedroom1, unless you come from the door(gatway)</h4>");
+        }
+		
+		writeOutput("<br><br>The Chair color is:");
+		chairColor = bedroom1Gateway.getChairColor();
+		writeDump(chairColor);
+	}
+		
+	else
+		writeOutput('No chairs in the bedroom1');
 	
 	try
     {
