@@ -7,20 +7,16 @@ component  output="false"
 	public PersonService function init(){
 		this.contactTranslator = new ContactTranslator();
 		variables.personDAO = new PersonDAO( );
-		variables.personGateway = new PersonGateway( );
 		return this;
 	}
 	
 	package Person function getPerson( required numeric personID ){
-		
-		var pId = arguments.personID;
-		
+		var pId = arguments.personID;		
 		var person = personDAO.read( pId );
 		return person;
 	}
 	
 	package Person[] function getAll( ){		
-		var arrayOfPerson = personGateway.getAll();
-		return arrayOfPerson;
+		return this.contactTranslator.toArrayOfPerson( personDAO.getAll() );
 	}
 }

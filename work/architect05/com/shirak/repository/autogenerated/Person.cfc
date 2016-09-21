@@ -1,4 +1,4 @@
-component output="false" accessors="true" 
+component output="false" accessors="false" 
 {
 	/* properties */
 	property name="Personid" type="numeric" ;

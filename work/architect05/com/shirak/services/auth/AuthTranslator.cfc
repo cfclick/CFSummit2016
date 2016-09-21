@@ -28,6 +28,8 @@ component  output="false"
 		for( loginRole in identityStruct.LoginRole ) {
 			var role = new Role();
 			role.roleID = loginRole.roleID;	
+			role.name = loginRole.name;	
+	
 			arrayOfRole.append(role);
 		}
 		identity.arrayOfRole = arrayOfRole;
