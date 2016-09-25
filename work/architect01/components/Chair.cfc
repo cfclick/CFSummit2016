@@ -4,7 +4,7 @@ Author      	:	Shirak Avakian
 Email       	:	Shirak.Avakian@gmail.com
 Company  		: 	QBI LLC
 Date        	:	@{Date}
-Component Name  : 	service.cfc
+Component Name  : 	Chair.cfc
 Description :
 	A description about this page
 ********************************************************************************
