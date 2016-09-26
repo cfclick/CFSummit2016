@@ -26,4 +26,8 @@ component displayname="Gateway"  hint="I'm the gate keeper for any incoming requ
 		return new Bedroom1();
 	}
 	
+	public Chair function getChair(){
+		return variables.getChair;
+	}
+	
 }
