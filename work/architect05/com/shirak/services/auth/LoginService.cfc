@@ -1,7 +1,5 @@
 component extends="conference.services.BaseService" output="false" 
 {
-	import conference.repository.DAL.AuthDAL;
-	
 	public LoginService function init(){
 		this.authTranslator = new AuthTranslator();
 		variables.authDAL = new AuthDAL( this );
@@ -17,7 +15,7 @@ component extends="conference.services.BaseService" output="false"
         }
         catch(Any e)
         {
-        	var error = new conference.services.Error();
+        	var error = new conference.BusinessEntities.Error();
         	error.Message = e.message;
         	error.Code = e.ErrorCode;
         	error.AllowToContinue = false;

@@ -1,10 +1,9 @@
-component output="false" accessors="true" 
+component output="false" accessors="true" extends="conference.BusinessEntities.BaseEntity"
 {
 	/* properties */
-	property name="Loginroleid" type="numeric" ;
-	property name="Loginid" type="numeric" ;
 	property name="Roleid" type="numeric" ;
-	property name="Description" type="string" ;
+	property name="Name" type="string" ;
+	property name="Decription" type="string" ;
 	property name="Createdby" type="string" ;
 	property name="Createddatetime" type="date" ;
 	property name="Updatedby" type="string" ;

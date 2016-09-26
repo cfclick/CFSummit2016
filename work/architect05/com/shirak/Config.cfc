@@ -76,6 +76,7 @@ component  output="false"
 				break;
 			}
 			
+			case 'cfr':
 			case 'res':	{
 				settings.email.errorTo = '';
 				settings.email.errorFrom = '';

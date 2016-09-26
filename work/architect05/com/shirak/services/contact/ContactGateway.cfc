@@ -8,10 +8,16 @@ component extends="conference.services.BaseService" output="false"
 	}
 	
 	private AddressService function getAddressService(){
-		return new AddressService();
+		if( isNull(variables.addressService) )
+			variables.addressService = new AddressService();
+		
+		return variables.addressService;
 	}
 	private PersonService function getPersonService(){
-		return new PersonService();
+		if( isNull(variables.personService) )
+			variables.personService = new PersonService();
+		
+		return variables.personService;
 	}
 	
 	public ContactAddress[] function getPersonAddress( required numeric personID ){	
