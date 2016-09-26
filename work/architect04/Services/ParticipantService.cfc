@@ -42,14 +42,14 @@ component extends="BaseService" output="false" implements="conference.Interfaces
 		var participant = new Participant();
 		var person = new Person();
 		var lectures = [];
-		person = participantDAL.personDAO.read( arguments.personID );
+		person = participantDAL.personDAO.getById( arguments.personID );
 		//Person
 		participant.person = person;
 		//End
 		//Conference
 		var conference = new Conference();
 		if( isnumeric( person.getConferenceid() )){
-			conference =  participantDAL.read( person.getConferenceid() ); 
+			conference =  participantDAL.conferenceDAO.getById( person.getConferenceid() ); 
 		}
 					 	
 		participant.conference = conference;

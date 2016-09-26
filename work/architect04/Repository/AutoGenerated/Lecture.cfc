@@ -7,7 +7,7 @@ component output="false" accessors="true"
 	property name="Stratdatetime" type="date" ;
 	property name="Enddatetime" type="date" ;
 	property name="Createdby" type="string" ;
-	property name="Crerateddatetime" type="date" ;
+	property name="Createddatetime" type="date" ;
 	property name="Updatedby" type="string" ;
 	property name="Updateddatetime" type="date" ;
 	

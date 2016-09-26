@@ -4,13 +4,14 @@
 	// Service Factory instance
 	writeDump(var=factory,label='Service Factory');
 	
-	// ParticipantService instance
+	// ParticipantService instance	
 	participantService = factory.GetParticipantService();
-	
-	writeDump(participantService.GETPARTICIPANT(2));
+	writeOutput("<h4>Get Participant by person ID </h4>");
+	writeDump(participantService.getParticipant(2));
 	
 	// LectureService instance
 	lectureService = factory.GetLectureService();
+	writeOutput("<h4>Get Lecture by lecture ID </h4>");
 	writeDump(lectureService.GetLecture( 1 ));
 	 
 </cfscript>

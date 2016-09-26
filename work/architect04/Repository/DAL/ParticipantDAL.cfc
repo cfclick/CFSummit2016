@@ -12,7 +12,6 @@ component output="false"
 		this.personDAO = new PersonDAO();
 		this.conferenceDAO = new ConferenceDAO();
 		this.lectureDAO = new LectureDAO();
-;
 		return this;
 	}
 	
@@ -21,19 +20,20 @@ component output="false"
 		var lectures = [];
 		var i = 1;
 		var qry = "";
+		// Hint: better approach by replacing inline query to store procedure	
 		cfquery( name="qry", datasource="dsnConference"  ){
 			writeOutput( "SELECT *
 					FROM Map.PersonLecture 
 					where personid = #id#" );
 		}
 		//* load value objects */
-		// Hint: better approach by replacing all in on store procedure	
+		
 		if( qry.recordcount > 0 ){	
 			for(var q in qry )
 			{
 				lecture = new Lecture();
-				lecture = this.lectureDAO.read( q.Lectureid );
-				lectures.append(lecture);
+				lecture = this.lectureDAO.getById( q.Lectureid );
+				lectures.append( lecture );
 			}
 		}
 		/* return success */
