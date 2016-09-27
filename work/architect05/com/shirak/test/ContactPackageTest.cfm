@@ -1,7 +1,7 @@
 <h4>Architect05 Auth package test</h4>
 <cfscript>
 
-	gate = new conference.services.contact.ContactGateway();
+	gate = new conference.Impl.contact.ContactGateway();
 	writeOutput("<h4>List Participants</h4>");
 	writeDump(gate.listParticipant());
 	

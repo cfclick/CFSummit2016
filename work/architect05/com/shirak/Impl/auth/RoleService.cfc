@@ -1,4 +1,4 @@
-component extends="conference.services.BaseService" output="false"
+component extends="conference.Impl.BaseService" output="false"
 {
 	public RoleService function init(){
 		this.authTranslator = new AuthTranslator();

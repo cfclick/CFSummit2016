@@ -1,4 +1,4 @@
-component  output="false"
+component extends="conference.Impl.BaseService" output="false"
 {
 	import conference.BusinessEntities.Person;
 	

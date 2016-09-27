@@ -1,6 +1,6 @@
 component output="false"
 {
-	import conference.services.auth.*;
+	import conference.Impl.auth.*;
 	
 	public AuthGateway function init(){
 		return this;

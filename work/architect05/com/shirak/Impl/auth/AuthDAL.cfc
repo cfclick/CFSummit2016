@@ -1,4 +1,4 @@
-component extends="conference.services.BaseDAL" output="false"
+component extends="conference.Impl.BaseDAL" output="false"
 {
 	function init(any dependency){
 		if( isdefined('arguments.dependency'))

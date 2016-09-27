@@ -1,6 +1,6 @@
 <h4>Architect05 Auth package test</h4>
 <cfscript>
-	gate = new conference.services.auth.AuthGateway();
+	gate = new conference.Impl.auth.AuthGateway();
 	writeOutput("<h4>Get environment</h4>");
 	writeDump(gate.getEnvironment());
 	
