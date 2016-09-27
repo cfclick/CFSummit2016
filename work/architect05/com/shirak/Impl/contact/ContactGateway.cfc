@@ -20,7 +20,7 @@ component extends="conference.Impl.BaseService" output="false"
 		return variables.personService;
 	}
 	
-	public ContactAddress[] function getPersonAddress( required numeric personID ){	
+	public Address[] function getPersonAddress( required numeric personID ){	
 		return getAddressService().getPersonAddress( arguments.personID );
 	}
 	

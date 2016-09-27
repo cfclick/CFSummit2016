@@ -1,4 +1,4 @@
-component  output="false"
+component output="false"
 {	
 	
 	package query function getById(numeric personId)
@@ -8,22 +8,20 @@ component  output="false"
 		var qry="";
 		
 		cfquery( name="qry", datasource="dsnConference"  ){
-			writeOutput( "SELECT * FROM Contact.Person
-							WHERE personID = #id#" );
-		}
-		
+			writeOutput( "SELECT * FROM Contact.Address
+							WHERE AddressID = #id#" );
+		}		
 		return qry;
 	}
 	
 	/* getAll */
 	package query function getAll()
 	{
-		var arrayOfPerson = [];
 		var qry = '';
 		var i = 0;
 		/* get all records from database */
 		cfquery( name="qry", datasource="dsnConference"  ){
-			writeOutput( "SELECT * FROM Contact.Person" );
+			writeOutput( "SELECT * FROM Contact.Address" );
 		}
 		return qry;
 	}

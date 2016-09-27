@@ -8,28 +8,19 @@ component  output="false"
 		return this;
 	}
 	
-	package ContactAddress[] function getPersonAddress( required numeric personID ){
+	package Address[] function getPersonAddress( required numeric personID ){
 		
-		try
-        {
-        	var str = variables.contactDAL.getPersonAddress( arguments.personID );
-        	var result = this.contactTranslator.toArrayOfContactAddress( str );
-			return result;
-        }
+		/*try
+        {*/
+        	var arrayOfAddress = [];
+        	var queryResult = variables.contactDAL.getPersonAddress( arguments.personID );
+        	var arrayOfAddress = this.contactTranslator.toArrayOfAddress( queryResult );
+			return arrayOfAddress;
+      /*  }
         catch(Any e)
         {
-        	var error = new conference.services.Error();
-        	error.Message = e.message;
-        	error.Code = e.ErrorCode;
-        	error.AllowToContinue = false;
-        	errors = [];
-        	errors.append(error);
-        	contactAddress = new ContactAddress();
-        	contactAddress.errors = errors;
-        	var contactAddresses = [];
-        	contactAddresses.append( contactAddress );
-        	return contactAddresses;
-        }
+        	throw(e);
+        }*/
 
 	}
 }

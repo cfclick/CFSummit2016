@@ -2,9 +2,9 @@ component output="false" accessors="true" extends="conference.BusinessEntities.B
 {
 	property type="numeric" name="AddressID";
 	property type="numeric" name="addressTypeID";
-	property type="numeric" name="Address1";
-	property type="numeric" name="Address2";
-	property type="numeric" name="city";
-	property type="numeric" name="state";
-	property type="numeric" name="zipCode";
+	property type="string" name="Address1";
+	property type="string" name="Address2";
+	property type="string" name="city";
+	property type="string" name="state";
+	property type="string" name="zipCode";
 }
