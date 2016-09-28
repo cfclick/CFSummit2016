@@ -21,5 +21,5 @@
 	  	</ul>
 	  </div>
 	</div>
-	
+	<cfoutput>#CGI.server_NAME#:#cgi.SERVER_PORT#</cfoutput>
 </cfoutput>

@@ -3,7 +3,7 @@
 */
 component singleton{
 	
-	import conference.services.contact.ContactGateway;
+	import conference.Impl.contact.ContactGateway;
 	
 	Participant function init(){
 		variables.contactGateway = new ContactGateway();
@@ -18,7 +18,7 @@ component singleton{
 	
 	public any function listParticipantsWithRest(){
 		
-		cfhttp( method="get" ,url="http://localhost/rest/api/Contact/participant.json", result='participants');
+		cfhttp( method="get" ,url="http://localhost:8500/rest/api/Contact/participant.json", result='participants');
 		return deserializeJSON( participants.Filecontent );
 		//writeDump(participants);abort;
 	}
