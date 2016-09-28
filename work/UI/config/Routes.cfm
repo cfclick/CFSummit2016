@@ -2,7 +2,7 @@
 	// Allow unique URL or combination of URLs, we recommend both enabled
 	setUniqueURLS(false);
 	// Auto reload configuration, true in dev makes sense to reload the routes on every request
-	//setAutoReload(false);
+	setAutoReload(true);
 	// Sets automatic route extension detection and places the extension in the rc.format variable
 	// setExtensionDetection(true);
 	// The valid extensions this interceptor will detect

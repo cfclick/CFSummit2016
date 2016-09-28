@@ -41,7 +41,7 @@ Optional Methods
 		// coldbox directives
 		coldbox = {
 			//Application Setup
-			appName 				= "Your app Name Here",
+			appName 				= "UI",
 
 			//Development Settings
 			reinitPassword			= "",
