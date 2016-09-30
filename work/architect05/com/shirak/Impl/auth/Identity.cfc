@@ -1,4 +1,4 @@
-component output="false" extends="conference.BusinessEntities.BaseEntity" 
+component output="false" extends="conference.Impl.BusinessEntities.BaseEntity" 
 {
 	property type="string" name="IdentityID";
 	property type="Login" name="login";

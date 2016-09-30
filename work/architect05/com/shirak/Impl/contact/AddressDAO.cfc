@@ -1,13 +1,21 @@
 component output="false"
 {	
 	
-	package query function getById(numeric personId)
-	{	
+	public AddressDAO function init( string datasource=''){
+		if( len(arguments.datasource) > 0  )
+		 	variables.dsn = arguments.datasource;
+		else
+			variables.dsn = getDataSource('Conference');//Conference
+			
+		return this;
+	}
+	
+	package query function getById(numeric personId){	
 		var id = arguments.personId;
 		var i = 1;
 		var qry="";
 		
-		cfquery( name="qry", datasource="dsnConference"  ){
+		cfquery( name="qry", datasource=dsn  ){
 			writeOutput( "SELECT * FROM Contact.Address
 							WHERE AddressID = #id#" );
 		}		
@@ -15,16 +23,14 @@ component output="false"
 	}
 	
 	/* getAll */
-	package query function getAll()
-	{
+	package query function getAll(){
 		var qry = '';
 		var i = 0;
 		/* get all records from database */
-		cfquery( name="qry", datasource="dsnConference"  ){
+		cfquery( name="qry", datasource=dsn ){
 			writeOutput( "SELECT * FROM Contact.Address" );
 		}
 		return qry;
 	}
-	
 
 }

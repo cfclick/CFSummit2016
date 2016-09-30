@@ -44,6 +44,7 @@ component  output="false"
 	public struct function getEnvironmentSettings(){
 		var settings = {};		
 		settings.email = {};
+		settings.dsn = {};
 		settings.serverName = CGI.SERVER_NAME;
 		var env = left( CGI.SERVER_NAME, 3 );
 		switch( env ){
@@ -53,7 +54,8 @@ component  output="false"
 				settings.email.errorFrom = '';
 				settings.environment = "local";
 				settings.isHttps = false;
-				settings.dsnName = "";				
+				settings.dsn['Conference'] = "dsnConference";	
+				settings.dsn['anotherDB'] = "dsnDB";			
 				break;
 			}		
 			
@@ -62,7 +64,8 @@ component  output="false"
 				settings.email.errorFrom = '';
 				settings.environment = "Development";
 				settings.isHttps = false;
-				settings.dsnName = "";
+				settings.dsn['Conference'] = "dsnConference";	
+				settings.dsn['anotherDB'] = "dsnDB";
 				break;
 			}
 			
@@ -72,7 +75,8 @@ component  output="false"
 				settings.email.errorFrom = '';
 				settings.environment = "QA";
 				settings.isHttps = false;
-				settings.dsnName = "";
+				settings.dsn['Conference'] = "dsnConference";	
+				settings.dsn['anotherDB'] = "dsnDB";
 				break;
 			}
 			
@@ -82,7 +86,8 @@ component  output="false"
 				settings.email.errorFrom = '';
 				settings.environment = "Research";
 				settings.isHttps = false;
-				settings.dsnName = "";
+				settings.dsn['Conference'] = "dsnConference";	
+				settings.dsn['anotherDB'] = "dsnDB";
 				break;
 			}
 			
@@ -91,7 +96,8 @@ component  output="false"
 				settings.email.errorFrom = '';
 				settings.environment = "Staging";
 				settings.isHttps = true;
-				settings.dsnName = "";	
+				settings.dsn['Conference'] = "dsnConference";	
+				settings.dsn['anotherDB'] = "dsnDB";
 				break;
 			}
 			
@@ -100,7 +106,8 @@ component  output="false"
 				settings.email.errorFrom = '';
 				settings.environment = "Production";
 				settings.isHttps = true;
-				settings.dsnName = "";
+				settings.dsn['Conference'] = "dsnConference";	
+				settings.dsn['anotherDB'] = "dsnDB";
 				break;
 			}
 			

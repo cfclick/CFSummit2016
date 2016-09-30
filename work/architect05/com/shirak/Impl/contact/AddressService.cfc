@@ -1,26 +1,18 @@
-component  output="false"
+component output="false"
 {
-	import conference.repository.DAL.ContactDAL;
+	import conference.Impl.BusinessEntities.Address;
 	
 	public AddressService function init(){
-		this.contactTranslator = new ContactTranslator();
-		variables.contactDAL = new ContactDAL( this );
+		this.translator = new Translator(); 
+		variables.repository = new Repository(); 
 		return this;
 	}
 	
-	package Address[] function getPersonAddress( required numeric personID ){
-		
-		/*try
-        {*/
-        	var arrayOfAddress = [];
-        	var queryResult = variables.contactDAL.getPersonAddress( arguments.personID );
-        	var arrayOfAddress = this.contactTranslator.toArrayOfAddress( queryResult );
-			return arrayOfAddress;
-      /*  }
-        catch(Any e)
-        {
-        	throw(e);
-        }*/
-
+	package Address[] function getPersonAddress( required numeric personID ){		
+    	var arrayOfAddress = [];
+    	var queryResult = variables.repository.getPersonAddress( arguments.personID );
+    	var arrayOfAddress = this.translator.toArrayOfAddress( queryResult );
+		return arrayOfAddress;
+    
 	}
 }

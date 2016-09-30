@@ -1,4 +1,4 @@
-component output="false" accessors="true" 
+component output="false" accessors="true" extends="conference.Impl.BusinessEntities.BaseEntity"
 {
 	/* properties */
 	property name="Personid" type="numeric" ;
@@ -6,11 +6,7 @@ component output="false" accessors="true"
 	property name="Conferenceid" type="numeric" ;
 	property name="Name" type="string" ;
 	property name="Gender" type="string" ;
-	property name="Isactive" type="numeric" ;
-	property name="Createdby" type="string" ;
-	property name="Createddatetime" type="date" ;
-	property name="Updatedby" type="string" ;
-	property name="Updateddatetime" type="date" ;
+	
 	
 	/* init */
 	function init()

@@ -1,8 +1,8 @@
 component extends="conference.Impl.BaseService" output="false"
 {
 	public RoleService function init(){
-		this.authTranslator = new AuthTranslator();
-		variables.authDAL = new AuthDAL( this );
+		this.translator = new Translator();
+		variables.repository = new Repository( this );
 		return this;
 	}
 	
@@ -10,8 +10,8 @@ component extends="conference.Impl.BaseService" output="false"
 		var arrayOfRole = [];
 		try
         {
-        	var queryResult = variables.authDAL.listRoles();
-			arrayOfRole = this.authTranslator.toArrayOfRole( queryResult );
+        	var queryResult = variables.repository.listRoles();
+			arrayOfRole = this.translator.toArrayOfRole( queryResult );
 			return arrayOfRole;
         }
         catch(Any e)

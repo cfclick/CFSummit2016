@@ -1,8 +1,10 @@
 component extends="conference.Impl.BaseService" output="false" 
 {
 	public LoginService function init(){
-		this.authTranslator = new AuthTranslator();
-		variables.authDAL = new AuthDAL( this );
+		this.translator = new Translator(); 
+		variables.repository = new Repository(); 
+		//this.authTranslator = new AuthTranslator();
+		//variables.authDAL = new AuthDAL( this );
 		return this;
 	}
 	
@@ -10,12 +12,12 @@ component extends="conference.Impl.BaseService" output="false"
 		
 		try
         {
-        	var str = variables.authDAL.login( arguments.userName, arguments.password );
-			return this.authTranslator.toIdentity( str );
+        	var str = variables.repository.login( arguments.userName, arguments.password );
+			return this.translator.toIdentity( str );
         }
         catch(Any e)
         {
-        	var error = new conference.BusinessEntities.Error();
+        	var error = new conference.Impl.BusinessEntities.Error();
         	error.Message = e.message;
         	error.Code = e.ErrorCode;
         	error.AllowToContinue = false;

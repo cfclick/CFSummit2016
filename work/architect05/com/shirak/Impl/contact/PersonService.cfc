@@ -1,27 +1,26 @@
 component extends="conference.Impl.BaseService" output="false"
 {
-	import conference.BusinessEntities.Person;
+	import conference.Impl.BusinessEntities.Person;
 	
 	public PersonService function init(){
-		this.contactTranslator = new ContactTranslator();
-		variables.contactDAL = new ContactDAL( this );
+		this.translator = new Translator(); 
+		variables.repository = new Repository(); 
 		return this;
 	}
 	
 	package Person function getPerson( required numeric personID ){
 		var pId = arguments.personID;		
-		var queryResult = variables.contactDAL.personDAO.getById( pId );
+		var queryResult = variables.repository.personDAO.getById( pId );
 		
 		for ( var row in queryResult ){
-			var person = this.contactTranslator.toPerson( row );
+			var person = this.translator.toPerson( row );
 			break;
-		}
-		
+		}	
 		return person;
 	}
 	
 	package Person[] function getAll( ){		
-		var queryResult = variables.contactDAL.personDAO.getAll();
-		return this.contactTranslator.toArrayOfPerson( queryResult );
+		var queryResult = variables.repository.personDAO.getAll();
+		return this.translator.toArrayOfPerson( queryResult );
 	}
 }

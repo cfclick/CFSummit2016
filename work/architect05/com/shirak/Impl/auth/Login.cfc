@@ -1,13 +1,9 @@
-component output="false" accessors="true" 
+component output="false" accessors="true" extends="conference.Impl.BusinessEntities.BaseEntity"
 {
 	/* properties */
 	property name="Loginid" type="numeric" ;
 	property name="Username" type="string" ;
 	property name="Password" type="string" ;
-	property name="Createdby" type="string" ;
-	property name="Createddatetime" type="date" ;
-	property name="Updatedby" type="string" ;
-	property name="Updateddatetime" type="date" ;
 	
 	/* init */
 	function init()
