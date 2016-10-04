@@ -1,4 +1,5 @@
 <cfoutput>
+	<div class="well">
 	<h4>
 		Welcome to participants
 	</h4>
@@ -22,4 +23,6 @@
 	  </div>
 	</div>
 	<cfoutput>#CGI.server_NAME#:#cgi.SERVER_PORT#</cfoutput>
+	
+	</div>
 </cfoutput>

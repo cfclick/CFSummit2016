@@ -1,0 +1,27 @@
+html,body{
+	/*padding-top: 50px;*/
+	font-size:12px;
+	height: 100%;
+	/*baseline-shift:baseline;
+	background: url('../images/cfsummit2016.png') no-repeat center center scroll;
+    background-size: 100% auto;
+    background-attachment: fixed;
+    margin-top:25px;*/
+
+}
+/* Utility */
+.centered { text-align: center !important; }
+
+.inline{ display: inline !important; }
+
+.margin10{ margin: 10px; }
+
+.padding10{ padding: 10px; }
+
+.margin0{ margin: 0px; }
+
+.padding0{ padding: 0px; }
+
+.hidden {
+     display:none;
+}
