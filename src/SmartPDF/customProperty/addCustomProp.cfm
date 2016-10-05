@@ -1,7 +1,4 @@
 <cfscript>
-	//Step 1 
-	//cfhtmltopdf (source="http://www.foxnews.com/", destination="foxnews.pdf", overwrite="true", orientation="landscape");abort;
-	
 	//File to use as source for custom property
 	if( isdefined( 'URL.src') ){		
 		src = expandpath( URL.src );
@@ -18,8 +15,6 @@
 	if( !fileExists( src ))
 		throw( message="Crerate PDF file first from step 1");
 		
-	//Step 2
-	
 	
 	//Prepare destination file to write to
 	fileOutputStream = CreateObject("java", "java.io.FileOutputStream").init( dest );
