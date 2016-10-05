@@ -1,9 +1,17 @@
 <h4>Sanitize</h4>
 <cfscript>
-	src = expandpath( "definedPDFs/ABC_Voter_Registration.pdf");
-	des = expandPath('sanitizedPDFs/ABC_Voter_Registration.pdf');
-	
-	cfpdf( action="sanitize", source=src, destination=des, overwrite="yes" );
+	try
+    {
+    	src = expandpath( "definedPDFs/ABC_Voter_Registration.pdf");
+		des = expandPath('sanitizedPDFs/ABC_Voter_Registration.pdf');
+		
+		cfpdf( action="sanitize", source=src, destination=des, overwrite="yes" );
+    }
+    catch(Any e)
+    {
+    	writeOutput("taking to long.");
+    }
+
 	
 	/*cfpdf( action="read" ,name="sanitizedReader" ,source=des  )	;*/
 </cfscript>
