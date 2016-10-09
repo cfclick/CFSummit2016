@@ -1,1 +1,0 @@
-<cfoutput><h1>Participant.index</h1></cfoutput>
