@@ -27,7 +27,7 @@ component output="false"
 			if( !isNull( qry.Stratdatetime[i] ) && len( qry.Stratdatetime[i] ) ) lecture.setStratdatetime(qry.Stratdatetime[i]);
 			if( !isNull( qry.Enddatetime[i] ) && len( qry.Enddatetime[i] ) ) lecture.setEnddatetime(qry.Enddatetime[i]);
 			if( !isNull( qry.Createdby[i] ) && len( qry.Createdby[i] ) ) lecture.setCreatedby(qry.Createdby[i]);
-			if( !isNull( qry.Crerateddatetime[i] ) && len( qry.Crerateddatetime[i] ) ) lecture.setCrerateddatetime(qry.Crerateddatetime[i]);
+			if( !isNull( qry.Createddatetime[i] ) && len( qry.Createddatetime[i] ) ) lecture.setcreateddatetime(qry.createddatetime[i]);
 			if( !isNull( qry.Updatedby[i] ) && len( qry.Updatedby[i] ) ) lecture.setUpdatedby(qry.Updatedby[i]);
 			if( !isNull( qry.Updateddatetime[i] ) && len( qry.Updateddatetime[i] ) ) lecture.setUpdateddatetime(qry.Updateddatetime[i]);
 			arrayAppend(arrayOfLecture, lecture);
@@ -45,7 +45,7 @@ component output="false"
 		
 		cfquery( name="qry", datasource="dsnConference"  ){
 			writeOutput( "SELECT lectureid,title,description,stratdatetime,enddatetime,
-					createdby,crerateddatetime,updatedby,updateddatetime
+					createdby,createddatetime,updatedby,updateddatetime
 			FROM Conf.Lecture
 			where lectureid = #ARGUMENTS.id#" );
 		}
@@ -57,7 +57,7 @@ component output="false"
 			lecture.setStratDateTime(qry.StratDateTime[i]);
 			lecture.setEndDateTime(qry.EndDateTime[i]);
 			lecture.setCreatedBy(qry.CreatedBy[i]);
-			lecture.setCreratedDateTime(qry.CreratedDateTime[i]);
+			lecture.setcreateddatetime(qry.createddatetime[i]);
 			lecture.setUpdatedBy(qry.UpdatedBy[i]);
 			lecture.setUpdatedDateTime(qry.UpdatedDateTime[i]);
 		}
@@ -107,13 +107,13 @@ component output="false"
 	}
 	
 	/* create */
-	public any function create( string Title, string Description= '', date StratDateTime= '01/01/1900', date EndDateTime= '01/01/1900', string CreatedBy= '', date CreratedDateTime= '01/01/1900', string UpdatedBy= '', date UpdatedDateTime= '01/01/1900' )
+	public any function create( string Title, string Description= '', date StratDateTime= '01/01/1900', date EndDateTime= '01/01/1900', string CreatedBy= '', date createddatetime= '01/01/1900', string UpdatedBy= '', date UpdatedDateTime= '01/01/1900' )
 	{
 	
 	}
 	
 	/* update */
-	public void function update(numeric LectureID,	string Title,	string Description,	date StratDateTime,	date EndDateTime,	string CreatedBy,	date CreratedDateTime,	string UpdatedBy,	date UpdatedDateTime)
+	public void function update(numeric LectureID,	string Title,	string Description,	date StratDateTime,	date EndDateTime,	string CreatedBy,	date createddatetime,	string UpdatedBy,	date UpdatedDateTime)
 	{	
 	}
 	
