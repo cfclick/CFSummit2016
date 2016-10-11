@@ -6,7 +6,7 @@
 		
 		throw(message="file #src# does not exist");
 	else{
-		cfpdf( action="read" ,name="pdfReader" ,source=src  );
+		cfpdf( action="getInfo" ,name="pdfReader" ,source=src  );
 	}
 
 	//writeDump(pdfReader);abort;
@@ -37,9 +37,7 @@
     info = reader.getInfo();
     writeDump(info);
     reader.close();
-   /* sleep(500);
-    cfpdf( action="getinfo" ,name="info" ,source=dest  );
-    writeDump(info);*/
+    
 </cfscript>	
 <cfoutput>
 	<h3>Custom properties created and saved to #dest#</h3>

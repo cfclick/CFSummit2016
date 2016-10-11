@@ -38,6 +38,10 @@
     info = reader.getInfo();
     writeDump(info);
     reader.close();
+    
+    writeoutput("<h3>Using cfpdf action getINFO</h3>");
+    cfpdf( action='getInfo', name="myPDF", source=dest);
+    writedump(myPDF);
 </cfscript>	
 
 
